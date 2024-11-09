@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<circuito xsi:schemaLocation="http://www.uniovi.es circuito.xsd"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.uniovi.es">
+    <nombre>Bahréin</nombre>
+    <longitud measure = "km">5.4</longitud>
+    <anchura measure= "m">12</anchura>
+    <fecha>2024-03-02</fecha>
+    <horaInicio>17:00:00</horaInicio>
+    <vueltas>57</vueltas>
+    <localidad>Shakir</localidad>
+    <pais>Bahreín</pais>
+    <referencias>
+        <referencia webSource="https://www.formula1.com/en/racing/2024/bahrain/circuit">Circuito diseñado por Hermann Tilke</referencia>
+        <referencia webSource="https://www.formula1.com/en/racing/2024/bahrain/circuit">Primera carrera en Bahreín el 17 de marzo de 2004</referencia>
+        <referencia webSource="https://www.elfinanciero.com.mx/deportes/2022/03/11/f1-2022-5-datos-para-conocer-el-circuito-de-bahrein/">La inversión para la creacion del circuito fue aproximadamente de 150 millones de dolares</referencia>
+    </referencias>
+    <fotos>
+        <foto img="BahrainNight.jpg" alt="Foto Bahreín de noche">Bahreín</foto>
+        <foto img="sakhir.png" alt="Mapa Bahreín">Mapa simple Bahreín</foto>
+        <foto img="fotobahrain.jpg" alt="Curva Bahreín">Curva Bahreín</foto>
+    </fotos>
+    <videos>
+        <video src="fastlap_bahrein.mp4">Fast Lap Pedro de la Rosa (2005) Bahreín</video>
+    </videos>
+    <coordenada>
+        <cooLongitud>50.51049998681525</cooLongitud>
+        <cooLatitud>26.03246166671207</cooLatitud>
+        <cooAltitud>7.367413619499472</cooAltitud>
+    </coordenada>
+    <tramos>
+        <tramo tipo="recta">
+            <longitud measure="m">469.45</longitud>
+            <coordenada>
+                <cooLongitud>50.51049998681525</cooLongitud>
+                <cooLatitud>26.03246166671207</cooLatitud>
+                <cooAltitud>7.367413619499472</cooAltitud>
+            </coordenada>
+            <numeroTramo>1</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="curva">
+            <longitud measure="m">18.28</longitud>
+            <coordenada>
+                <cooLongitud>50.5106869376031</cooLongitud>
+                <cooLatitud>26.03676932646244</cooLatitud>
+                <cooAltitud>10.25875269501008</cooAltitud>
+            </coordenada>
+            <numeroTramo>1</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="recta">
+            <longitud measure="m">71.98</longitud>
+            <coordenada>
+                <cooLongitud>50.510929947824</cooLongitud>
+                <cooLatitud>26.03680840871502</cooLatitud>
+                <cooAltitud>9.65630930721591</cooAltitud>
+            </coordenada>
+            <numeroTramo>1</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="curva">
+            <longitud measure="m">33.89</longitud>
+            <coordenada>
+                <cooLongitud>50.51148214592294</cooLongitud>
+                <cooLatitud>26.03638335293471</cooLatitud>
+                <cooAltitud>8.619064121630435</cooAltitud>
+            </coordenada>
+            <numeroTramo>1</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="recta">
+            <longitud measure="m">86.33</longitud>
+            <coordenada>
+                <cooLongitud>50.51171001215074</cooLongitud>
+                <cooLatitud>26.03636005512915</cooLatitud>
+                <cooAltitud>8.76147305820373</cooAltitud>
+            </coordenada>
+            <numeroTramo>1</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="curva">
+            <longitud measure="m">29.44</longitud>
+            <coordenada>
+                <cooLongitud>50.51255185370671</cooLongitud>
+                <cooLatitud>26.03658740461123</cooLatitud>
+                <cooAltitud>11.11427114717766</cooAltitud>
+            </coordenada>
+            <numeroTramo>1</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="recta">
+            <longitud measure="m">524.13</longitud>
+            <coordenada>
+                <cooLongitud>50.51286690462311</cooLongitud>
+                <cooLatitud>26.03658510339963</cooLatitud>
+                <cooAltitud>12.20437051251858</cooAltitud>
+            </coordenada>
+            <numeroTramo>1</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="curva">
+            <longitud measure="m">66.19</longitud>
+            <coordenada>
+                <cooLongitud>50.51807803940468</cooLongitud>
+                <cooLatitud>26.03569093599802</cooLatitud>
+                <cooAltitud>23.31354749949633</cooAltitud>
+            </coordenada>
+            <numeroTramo>1</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="recta">
+            <longitud measure="m">211.53</longitud>
+            <coordenada>
+                <cooLongitud>50.51829247893367</cooLongitud>
+                <cooLatitud>26.035298516295</cooLatitud>
+                <cooAltitud>23.77397313778022</cooAltitud>
+            </coordenada>
+            <numeroTramo>1</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="curva">
+            <longitud measure="m">66.77</longitud>
+            <coordenada>
+                <cooLongitud>50.5167269950064</cooLongitud>
+                <cooLatitud>26.03395087017943</cooLatitud>
+                <cooAltitud>20.44421464354426</cooAltitud>
+            </coordenada>
+            <numeroTramo>1</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="recta">
+            <longitud measure="m">72.58</longitud>
+            <coordenada>
+                <cooLongitud>50.51638754817536</cooLongitud>
+                <cooLatitud>26.03338392573043</cooLatitud>
+                <cooAltitud>20.01425358583877</cooAltitud>
+            </coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="curva">
+            <longitud measure="m">56.6</longitud>
+            <coordenada>
+                <cooLongitud>50.51576598757487</cooLongitud>
+                <cooLatitud>26.03303724509199</cooLatitud>
+                <cooAltitud>19.14920580883734</cooAltitud>
+            </coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="recta">
+            <longitud measure="m">53.53</longitud>
+            <coordenada>
+                <cooLongitud>50.51515180910143</cooLongitud>
+                <cooLatitud>26.03310745454165</cooLatitud>
+                <cooAltitud>17.84093109038378</cooAltitud>
+            </coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="curva">
+            <longitud measure="m">196.36</longitud>
+            <coordenada>
+                <cooLongitud>50.51469768644483</cooLongitud>
+                <cooLatitud>26.03291327552581</cooLatitud>
+                <cooAltitud>15.38454923018148</cooAltitud>
+            </coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="recta">
+            <longitud measure="m">38.64</longitud>
+            <coordenada>
+                <cooLongitud>50.51343949598623</cooLongitud>
+                <cooLatitud>26.03149858359356</cooLatitud>
+                <cooAltitud>7.84713028608487</cooAltitud>
+            </coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="curva">
+            <longitud measure="m">317.51</longitud>
+            <coordenada>
+                <cooLongitud>50.51312121619627</cooLongitud>
+                <cooLatitud>26.03161178410958</cooLatitud>
+                <cooAltitud>7.847134064610741</cooAltitud>
+            </coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="recta">
+            <longitud measure="m">63.63</longitud>
+            <coordenada>
+                <cooLongitud>50.51351934801444</cooLongitud>
+                <cooLatitud>26.03441190519051</cooLatitud>
+                <cooAltitud>12.14456254226713</cooAltitud>
+            </coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="curva">
+            <longitud measure="m">54.27</longitud>
+            <coordenada>
+                <cooLongitud>50.51330965672287</cooLongitud>
+                <cooLatitud>26.03494360259097</cooLatitud>
+                <cooAltitud>10.16663992851875</cooAltitud>
+            </coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="recta">
+            <longitud measure="m">31.71</longitud>
+            <coordenada>
+                <cooLongitud>50.51287695613279</cooLongitud>
+                <cooLatitud>26.03525692995379</cooLatitud>
+                <cooAltitud>9.130205688713023</cooAltitud>
+            </coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="curva">
+            <longitud measure="m">671.5</longitud>
+            <coordenada>
+                <cooLongitud>50.51270458489581</cooLongitud>
+                <cooLatitud>26.03518581435868</cooLatitud>
+                <cooAltitud>8.952472718506492</cooAltitud>
+            </coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="recta">
+            <longitud measure="m">46.47</longitud>
+            <coordenada>
+                <cooLongitud>50.51230147537958</cooLongitud>
+                <cooLatitud>26.02906814399569</cooLatitud>
+                <cooAltitud>8.955929336891675</cooAltitud>
+            </coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="curva">
+            <longitud measure="m">188.72</longitud>
+            <coordenada>
+                <cooLongitud>50.51261059221525</cooLongitud>
+                <cooLatitud>26.02873133389891</cooLatitud>
+                <cooAltitud>9.485458293074359</cooAltitud>
+            </coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="recta">
+            <longitud measure="m">80.42</longitud>
+            <coordenada>
+                <cooLongitud>50.51420046914652</cooLongitud>
+                <cooLatitud>26.02944978391371</cooLatitud>
+                <cooAltitud>14.54231965828491</cooAltitud>
+            </coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="curva">
+            <longitud measure="m">174</longitud>
+            <coordenada>
+                <cooLongitud>50.51445849001359</cooLongitud>
+                <cooLatitud>26.03015105464957</cooLatitud>
+                <cooAltitud>17.56550973770869</cooAltitud>
+            </coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="recta">
+            <longitud measure="m">147.99</longitud>
+            <coordenada>
+                <cooLongitud>50.51591659003665</cooLongitud>
+                <cooLatitud>26.03069894130303</cooLatitud>
+                <cooAltitud>22.14222202641648</cooAltitud>
+            </coordenada>
+            <numeroTramo>3</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="recta">
+            <longitud measure="m">51.23</longitud>
+            <coordenada>
+                <cooLongitud>50.51724848236717</cooLongitud>
+                <cooLatitud>26.03006244268665</cooLatitud>
+                <cooAltitud>22.25997105684264</cooAltitud>
+            </coordenada>
+            <numeroTramo>3</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="curva">
+            <longitud measure="m">781.43</longitud>
+            <coordenada>
+                <cooLongitud>50.51749460240578</cooLongitud>
+                <cooLatitud>26.02968369218847</cooLatitud>
+                <cooAltitud>22.05854244020354</cooAltitud>
+            </coordenada>
+            <numeroTramo>3</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="recta">
+            <longitud measure="m">23.33</longitud>
+            <coordenada>
+                <cooLongitud>50.5107770781166</cooLongitud>
+                <cooLatitud>26.0260809643011</cooLatitud>
+                <cooAltitud>11.53345739106242</cooAltitud>
+            </coordenada>
+            <numeroTramo>3</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="curva">
+            <longitud measure="m">50.91</longitud>
+            <coordenada>
+                <cooLongitud>50.51053337126764</cooLongitud>
+                <cooLatitud>26.02617838181852</cooLatitud>
+                <cooAltitud>11.14543866937454</cooAltitud>
+            </coordenada>
+            <numeroTramo>3</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="curva">
+            <longitud measure="m">34.65</longitud>
+            <coordenada>
+                <cooLongitud>50.51031707769604</cooLongitud>
+                <cooLatitud>26.02660333249614</cooLatitud>
+                <cooAltitud>10.03990602049996</cooAltitud>
+            </coordenada>
+            <numeroTramo>3</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="curva">
+            <longitud measure="m">364.39</longitud>
+            <coordenada>
+                <cooLongitud>50.51028382476851</cooLongitud>
+                <cooLatitud>26.02692253017874</cooLatitud>
+                <cooAltitud>9.382665248056174</cooAltitud>
+            </coordenada>
+            <numeroTramo>3</numeroTramo>
+        </tramo>
+        
+
+        <tramo tipo="recta">
+            <longitud measure="m">251.76</longitud>
+            <coordenada>
+                <cooLongitud>50.51058727953555</cooLongitud>
+                <cooLatitud>26.03191343146865</cooLatitud>
+                <cooAltitud>7.235739210389815</cooAltitud>
+            </coordenada>
+            <numeroTramo>3</numeroTramo>
+        </tramo>
+
+
+        <tramo tipo="recta">
+            <longitud measure="m">246.79</longitud>
+            <coordenada>
+                <cooLongitud>50.51064218040562</cooLongitud>
+                <cooLatitud>26.03228570645899</cooLatitud>
+                <cooAltitud>7.580428159838261</cooAltitud>
+            </coordenada>
+            <numeroTramo>1</numeroTramo>
+        </tramo>
+    </tramos>
+</circuito>

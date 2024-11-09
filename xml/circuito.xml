@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE circuito SYSTEM "circuito.dtd">
+<circuito>
+    <nombre>Bahréin</nombre>
+    <longitud measure = "km">5.4</longitud>
+    <anchura measure= "m">12</anchura>
+    <fecha>02-03-2024</fecha>
+    <horaInicio>17:00</horaInicio>
+    <vueltas>57</vueltas>
+    <localidad>Shakir</localidad>
+    <pais>Bahreín</pais>
+    <referencias>
+        <referencia webSource="https://www.formula1.com/en/racing/2024/bahrain/circuit">Circuito diseñado por Hermann Tilke</referencia>
+        <referencia webSource="https://www.formula1.com/en/racing/2024/bahrain/circuit">Primera carrera en Bahreín el 17 de marzo de 2004</referencia>
+        <referencia webSource="https://www.elfinanciero.com.mx/deportes/2022/03/11/f1-2022-5-datos-para-conocer-el-circuito-de-bahrein/">La inversión para la creacion del circuito fue aproximadamente de 150 millones de dolares</referencia>
+    </referencias>
+    <fotos>
+        <foto img="BahrainNight.jpg" alt="Foto Bahreín de noche">Bahreín</foto>
+        <foto img="sakhir.png" alt="Mapa Bahreín">Mapa simple Bahreín</foto>
+        <foto img="fotobahrain.jpg" alt="Curva Bahreín">Curva Bahreín</foto>
+    </fotos>
+    <videos>
+        <video src="fastlap_bahrein.mp4">Fast Lap Pedro de la Rosa (2005) Bahreín</video>
+    </videos>
+    <coordenada><cooLongitud>26°02'01''N</cooLongitud> <cooLatitud>50°30'47''E</cooLatitud><cooAltitud>7</cooAltitud></coordenada>
+    <tramos>
+        <tramo tipo="recta">
+            <longitud measure="m">726</longitud>
+            <coordenada><cooLongitud>26°02'01''N</cooLongitud><cooLatitud>50°30'47''E</cooLatitud><cooAltitud>7</cooAltitud></coordenada>
+            <numeroTramo>1</numeroTramo>
+        </tramo>
+        <tramo tipo="curva">
+            <longitud measure="m">34,73</longitud>
+            <coordenada><cooLongitud>26°02'12''N</cooLongitud><cooLatitud>50°30'43''E</cooLatitud><cooAltitud>10</cooAltitud></coordenada>
+            <numeroTramo>1</numeroTramo>
+        </tramo>
+        <tramo tipo="recta">
+            <longitud measure="m">71,14</longitud>
+            <coordenada><cooLongitud>26°02'01''N</cooLongitud><cooLatitud>50°30'47''E</cooLatitud><cooAltitud>7</cooAltitud></coordenada>
+            <numeroTramo>1</numeroTramo>
+        </tramo>
+        <tramo tipo="curva">
+            <longitud measure="m">23,77</longitud>
+            <coordenada><cooLongitud>26°02'12''N</cooLongitud><cooLatitud>50°30'39''E</cooLatitud><cooAltitud>10</cooAltitud></coordenada>
+            <numeroTramo>1</numeroTramo>
+        </tramo>
+        <tramo tipo="recta">
+            <longitud measure="m">96,36</longitud>
+            <coordenada><cooLongitud>26°02'10''N</cooLongitud><cooLatitud>50°30'41''E</cooLatitud><cooAltitud>10</cooAltitud></coordenada>
+            <numeroTramo>1</numeroTramo>
+        </tramo>
+        <tramo tipo="curva">
+            <longitud measure="m">42,97</longitud>
+            <coordenada><cooLongitud>26°02'11''N</cooLongitud><cooLatitud>50°30'44''E</cooLatitud><cooAltitud>11</cooAltitud></coordenada>
+            <numeroTramo>1</numeroTramo>
+        </tramo>
+        <tramo tipo="recta">
+            <longitud measure="m">540,49</longitud>
+            <coordenada><cooLongitud>26°02'11''N</cooLongitud><cooLatitud>50°30'46''E</cooLatitud><cooAltitud>12</cooAltitud></coordenada>
+            <numeroTramo>1</numeroTramo>
+        </tramo>
+        <tramo tipo="curva">
+            <longitud measure="m">79,59</longitud>
+            <coordenada><cooLongitud>26°02'08''N</cooLongitud><cooLatitud>50°31'05''E</cooLatitud><cooAltitud>23</cooAltitud></coordenada>
+            <numeroTramo>1</numeroTramo>
+        </tramo>
+        <tramo tipo="recta">
+            <longitud measure="m">196,65</longitud>
+            <coordenada><cooLongitud>26°02'06''N</cooLongitud><cooLatitud>50°31'05''E</cooLatitud><cooAltitud>22</cooAltitud></coordenada>
+            <numeroTramo>1</numeroTramo>
+        </tramo>
+        <tramo tipo="curva">
+            <longitud measure="m">61,78</longitud>
+            <coordenada><cooLongitud>26°02'02''N</cooLongitud><cooLatitud>50°31'00''E</cooLatitud><cooAltitud>21</cooAltitud></coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        <tramo tipo="curva">
+            <longitud measure="m">90,26</longitud>
+            <coordenada><cooLongitud>26°02'00''N</cooLongitud><cooLatitud>50°30'58''E</cooLatitud><cooAltitud>20</cooAltitud></coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        <tramo tipo="recta">
+            <longitud measure="m">44,78</longitud>
+            <coordenada><cooLongitud>26°01'58''N</cooLongitud><cooLatitud>50°30'54''E</cooLatitud><cooAltitud>18</cooAltitud></coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        <tramo tipo="curva">
+            <longitud measure="m">78,9</longitud>
+            <coordenada><cooLongitud>26°01'58''N</cooLongitud><cooLatitud>50°30'55''E</cooLatitud><cooAltitud>18</cooAltitud></coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        <tramo tipo="recta">
+            <longitud measure="m">185,17</longitud>
+            <coordenada><cooLongitud>26°01'58''N</cooLongitud><cooLatitud>50°30'52''E</cooLatitud><cooAltitud>15</cooAltitud></coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        <tramo tipo="curva">
+            <longitud measure="m">48,65</longitud>
+            <coordenada><cooLongitud>26°01'53''N</cooLongitud><cooLatitud>50°30'48''E</cooLatitud><cooAltitud>8</cooAltitud></coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        <tramo tipo="recta">
+            <longitud measure="m">298,86</longitud>
+            <coordenada><cooLongitud>26°01'54''N</cooLongitud><cooLatitud>50°30'47''E</cooLatitud><cooAltitud>8</cooAltitud></coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        <tramo tipo="curva">
+            <longitud measure="m">78,46</longitud>
+            <coordenada><cooLongitud>26°01'03''N</cooLongitud><cooLatitud>50°30'48''E</cooLatitud><cooAltitud>12</cooAltitud></coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        <tramo tipo="recta">
+            <longitud measure="m">44,23</longitud>
+            <coordenada><cooLongitud>26°02'06''N</cooLongitud><cooLatitud>50°30'46''E</cooLatitud><cooAltitud>10</cooAltitud></coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        <tramo tipo="curva">
+            <longitud measure="m">29,45</longitud>
+            <coordenada><cooLongitud>26°02'06''N</cooLongitud><cooLatitud>50°30'46''E</cooLatitud><cooAltitud>10</cooAltitud></coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        <tramo tipo="recta">
+            <longitud measure="m">682,24</longitud>
+            <coordenada><cooLongitud>26°02'06''N</cooLongitud><cooLatitud>50°30'45''E</cooLatitud><cooAltitud>9</cooAltitud></coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        <tramo tipo="curva">
+            <longitud measure="m">237,09</longitud>
+            <coordenada><cooLongitud>26°01'44''N</cooLongitud><cooLatitud>50°30'44''E</cooLatitud><cooAltitud>9</cooAltitud></coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        <tramo tipo="recta">
+            <longitud measure="m">68,47</longitud>
+            <coordenada><cooLongitud>26°01'46''N</cooLongitud><cooLatitud>50°30'51''E</cooLatitud><cooAltitud>15</cooAltitud></coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        <tramo tipo="curva">
+            <longitud measure="m">215,03</longitud>
+            <coordenada><cooLongitud>26°01'47''N</cooLongitud><cooLatitud>50°30'51''E</cooLatitud><cooAltitud>17</cooAltitud></coordenada>
+            <numeroTramo>2</numeroTramo>
+        </tramo>
+        <tramo tipo="recta">
+            <longitud measure="m">135,85</longitud>
+            <coordenada><cooLongitud>26°01'50''N</cooLongitud><cooLatitud>50°30'57''E</cooLatitud><cooAltitud>22</cooAltitud></coordenada>
+            <numeroTramo>3</numeroTramo>
+        </tramo>
+        <tramo tipo="curva">
+            <longitud measure="m">99,59</longitud>
+            <coordenada><cooLongitud>26°01'48''N</cooLongitud><cooLatitud>50°31'01''E</cooLatitud><cooAltitud>22</cooAltitud></coordenada>
+            <numeroTramo>3</numeroTramo>
+        </tramo>
+        <tramo tipo="recta">
+            <longitud measure="m">744,87</longitud>
+            <coordenada><cooLongitud>26°01'55''N</cooLongitud><cooLatitud>50°31'02''E</cooLatitud><cooAltitud>21</cooAltitud></coordenada>
+            <numeroTramo>3</numeroTramo>
+        </tramo>
+        <tramo tipo="curva">
+            <longitud measure="m">40,75</longitud>
+            <coordenada><cooLongitud>26°01'33''N</cooLongitud><cooLatitud>50°30'39''E</cooLatitud><cooAltitud>12</cooAltitud></coordenada>
+            <numeroTramo>3</numeroTramo>
+        </tramo>
+        <tramo tipo="recta">
+            <longitud measure="m">40,68</longitud>
+            <coordenada><cooLongitud>26°01'34''N</cooLongitud><cooLatitud>50°30'37''E</cooLatitud><cooAltitud>11</cooAltitud></coordenada>
+            <numeroTramo>3</numeroTramo>
+        </tramo>
+        <tramo tipo="curva">
+            <longitud measure="m">41,45</longitud>
+            <coordenada><cooLongitud>26°01'35''N</cooLongitud><cooLatitud>50°30'37''E</cooLatitud><cooAltitud>10</cooAltitud></coordenada>
+            <numeroTramo>3</numeroTramo>
+        </tramo>
+        <tramo tipo="recta">
+            <longitud measure="m">370,45</longitud>
+            <coordenada><cooLongitud>26°01'36''N</cooLongitud><cooLatitud>50°30'36''E</cooLatitud><cooAltitud>9</cooAltitud></coordenada>
+            <numeroTramo>3</numeroTramo>
+        </tramo>
+    </tramos>
+</circuito>
