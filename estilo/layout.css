@@ -25,8 +25,8 @@ body p {
     margin: 0%;
 }
 
-/*especificidad 002*/
-body main {
+/*especificidad 001*/
+body > * {
     padding-left: 2%;
     padding-right: 2%;
 }
@@ -70,4 +70,71 @@ main section video {
 body main aside p {
     margin: 0%;
     line-height: 0;
+}
+
+/*especificidad 002*/
+main nav {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        text-align: center;
+        font-size: 2em;
+}
+body aside:has(nav){
+    display: grid;
+    width: 100%;
+    padding: 0;
+}
+aside nav {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    align-self: center;
+
+}
+
+aside nav a {
+    color: #fff;
+    font-size: 2em;
+}
+
+aside:has(nav) h2 {
+    grid-column: 1/-1;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px){
+
+    /*espcificidad 001*/
+    header {
+        display: flex ;
+        flex-direction: column;
+        padding: 2%;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0%;
+    }
+
+    header nav {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+        padding-top: 5%;
+    }
+    nav a{
+        padding: 5%;
+    }
+
+    aside nav {
+        justify-content: center;
+    }
+
+    aside nav a {
+        color: #fff;
+        font-size: 1em;
+    }
+
+    
 }

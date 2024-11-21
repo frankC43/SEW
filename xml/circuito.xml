@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE circuito SYSTEM "circuito.dtd">
 <circuito>
-    <nombre>Bahréin</nombre>
+    <nombre>Circuito Internacional de Bahréin</nombre>
     <longitud measure = "km">5.4</longitud>
     <anchura measure= "m">12</anchura>
     <fecha>02-03-2024</fecha>

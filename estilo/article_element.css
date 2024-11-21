@@ -1,0 +1,31 @@
+/*especificidad 002*/
+main section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+/*especificidad 003*/
+main section article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 14%;
+    padding: 2%;
+    margin: 1%;
+    border-radius: 8px;
+    background-color: #36ABAB; /* Color de fondo suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+/*especificidad 004*/
+main section article img {
+    width: 25%; 
+    height: auto;
+}
+/*especificidad 004*/
+main section article p {
+    margin: 1%;
+    font-size: 1em;
+    color: #333; /* Color de texto */
+}

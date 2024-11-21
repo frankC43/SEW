@@ -1,20 +1,25 @@
   
- main section {
-      width: 60%;
-      height: 50%;
-      margin: auto;
-      
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: 1fr 1fr 1fr;
-      gap: 5% 3%;
-      align-items: center;
-  }
+main section {
+    width: 90%;
+    height: 30%;
+    margin: auto;
+    
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0% 5%;
+    align-items: center;
+
+}
   
 h2 {
       grid-column: 1 / -1;
       text-align: center;
-  }
+}
+
+button {
+    font-size: 2em;
+}
   
  section div {
       background-color: #000A;
@@ -41,45 +46,72 @@ h2 {
     to {background-color: #000A;}
 }
 
-section div.load:nth-of-type(1) {
+section div.load {
     animation-name: arranque;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
 }
 
 section div.load:nth-of-type(2) {
-    animation-name: arranque;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
+    animation-delay: 0.5s;
 }
 
 section div.load:nth-of-type(3) {
-    animation-name: arranque;
-    animation-duration: 1.5s;
-    animation-fill-mode: forwards;
+    animation-delay: 1s;
 }
 
 section div.load:nth-of-type(4) {
-    animation-name: arranque;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
+    animation-delay: 1.5s;
 }
 
 section div.unload {
     animation-name: out;
-    animation-duration: 0.1;
+    animation-duration: 0.1s;
     animation-fill-mode: backwards;
 }
 
 main aside {
     display: flex;
-    flex: row;
+    flex-direction: column;
     justify-content: center;
-    font-size: 2.5em;
+    width: 100%;
+    height: auto;
     padding: 0;
-    margin: 0;
+    margin-bottom: 10%;
+
+}
+
+main aside p {
+    font-size: 3.5em;
+    align-self: center;
 }
 
 aside nav {
     margin-left: 1.5%;
+}
+
+@media (max-width: 768px) {
+    main aside p {
+        font-size: 2.5em; 
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        padding-top: 15%;
+    }
+    main aside {
+        padding: 0;
+        height: auto; 
+    }
+
+    main section {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr 1fr 1fr;
+        justify-items: center;
+        margin: 0;
+        gap: 10% 0;
+        width: 100%;
+    }
+
+    
 }

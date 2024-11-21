@@ -51,6 +51,7 @@ class Semaforo{
 
         let i = 1
         for (let div of divs){
+            div.classList.remove("unload")
             this.wait((i)*loadDelay, () => div.classList.add("load"))
             i++
         }

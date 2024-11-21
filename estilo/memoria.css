@@ -1,3 +1,4 @@
+/*especificidad 001*/
 article {
     display: flex;
     align-items: center;
@@ -10,16 +11,18 @@ article {
     transition: transform .5s;
     box-shadow: 1px 1px 1px rgba(0,0,0,.3);
 }
-
+/*especificidad 011*/
 article[data-state=flip] {
     transform: rotateY(180deg);
 }
 
+/*especificidad 011*/
 article[data-state=revealed] {
     transform: rotateY(180deg);
 }
-
+/*especificidad 002*/
 article h3,
+/*especificidad 002*/
 article img {
     margin: 0%;
     width: 100%;
@@ -30,29 +33,29 @@ article img {
     backface-visibility: hidden;
     text-align: center;
 }
-
+/*especificidad 002*/
 article h3 {
-    font-size: 0.5em;
+    font-size: 0.8em;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
-
+/*especificidad 002*/
 article img {
     transform: rotateY(180deg);
 }
-
+/*especificidad 003*/
 body main section {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    
 }
-
-body main,
-body aside {
+/*especificidad 002*/
+body main {
     width: 50%;
     height: 50%;
     align-items: center;
@@ -60,7 +63,44 @@ body aside {
     padding-left: 2%;
     padding-right: 2%;
 }
-
+/*especificidad 002*/
 body main {
+    margin-left: 25%;
+    margin-right: 25%;
+}
+/*especificidad 003*/
+body > main > h2 {
     align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+}
+
+main aside {
+    justify-content: center;
+}
+
+pre {
+    font-family: inherit;
+    width: max-content;
+    align-items: center;
+    border: 2px  solid #050505; 
+    padding: 2%;
+}
+
+@media screen and (max-width: 768px){ 
+    body main {
+        display: inline;
+        margin: 0;
+        padding: 0;
+    }
+
+    pre {
+        padding: 1%;
+        padding: 1%;
+        word-wrap: break-word; /* Corta palabras largas si es necesario */
+        white-space: pre-wrap; /* Ajusta líneas largas */
+        overflow-x: auto; /* Añade un scroll horizontal solo si es estrictamente necesario */
+        max-width: 90%; /* Asegúrate de que no desborde */
+        justify-self: center;
+    }
 }

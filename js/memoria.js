@@ -1,6 +1,7 @@
 
 class Memoria {
-    
+
+    "use strict:"
    constructor(){
         this.elements = [
             {
@@ -63,7 +64,7 @@ class Memoria {
                     .forEach((child)=>child.removeAttribute('data-state'))
             
             memoria.resetBoard()
-        }, 2500)
+        }, 1500)
         
    }
 
@@ -143,4 +144,32 @@ class Memoria {
             })
    }
 
+   getTutorial(){
+        let isPre = document.querySelector("main aside").querySelectorAll("pre")[0]
+        if (isPre != undefined){
+            if (isPre.hidden)
+                isPre.hidden = false
+            else 
+                isPre.hidden = true
+        } else {
+            let pre = document.createElement("pre")
+            pre.textContent = 
+                "INSTRUCCIONES: Juego de memorización\n"+
+                "\t¿Cuál es el objetivo del juego?\n"+
+                "\t\tConseguir que todas las cartas de la baraja de memorización queden boca arriba.\n"+
+                "\t\tLas cartas quedan boca arriba cuando muestran el equipo de F1 al que representan.\n\n"+
+                "\t¿Cómo jugar?\n"+
+                "\t\tPulsa cualquiera de las cartas para que esta se de la vuelta y muestre el equipo de F1 representado.\n"+
+                "\t\tUna vez hayas pulsado 2 cartas de la baraja pueden pasar dos cosas:\n"+
+                "\t\t\t1. Las cartas son iguales\n"+
+                "\t\t\t\tSi las cartas son iguales estas se quedaran dadas la vuelta.\n"+
+                "\t\t\t2. Las cartas NO son iguales\n"+
+                "\t\t\t\tSi las cartas no son iguales estas trás un lapso de 2 segundos se volverán a su posición original\n"+
+                "\t\t\tRepite el proceso hasta que todas las cartas estén boca arriba"
+            
+            document.querySelector("main aside").appendChild(pre)
+        }
+   }
+
 }
+
