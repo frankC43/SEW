@@ -7,12 +7,12 @@
     <meta name="description" content="Juego de memoria de la web F1 Desktop relacionado con los juegos de F1"/>
     <meta name="keywords" content="Formula 1 Juegos, F1 Juegos, Memoria, Cartas"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-    <title>F1 Desktop - Juegos</title>
-    <link href="/multimedia/imagenes/favicon-lance-stroll.jfif" rel="icon">
+    <title>F1 Desktop - Juego de Memoria</title>
+    <link href="multimedia/imagenes/favicon-lance-stroll.jfif" rel="icon">
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css"/>
     <link rel="stylesheet" type="text/css" href="estilo/memoria.css"/>
-    <script src="./js/memoria.js"></script>   
+    <script src="js/memoria.js"></script>
 </head>
 
 <body>
@@ -35,19 +35,22 @@
     <aside>
     <h2>Juegos</h2>
         <nav>
-            <a href="memoria.html" title="Memoria">Memoria</a>
-            <a href="semaforo.html" title="Semaforo">Semaforo</a>
+            <a href="memoria.html" title="Juego de Memoria">Juego de Memoria</a>
+            <a href="semaforo.php" title="Juego del Semaforo">Juego del Semaforo</a>
         </nav>
     </aside>
     <main>
         <h2>Juego de Memoria</h2>
         <aside>
-            <button onclick="mem.getTutorial()">Tutorial</button>
+            <button onclick="mem.getTutorial()">Ocultar instrucciones</button>
         </aside>
         <section></section>
         <script> 
             const mem = new Memoria()
         </script>
     </main>
+    <footer>
+
+    </footer>
 </body>
 </html>

@@ -15,12 +15,12 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.uniovi.e
         <referencia webSource="https://www.elfinanciero.com.mx/deportes/2022/03/11/f1-2022-5-datos-para-conocer-el-circuito-de-bahrein/">La inversión para la creacion del circuito fue aproximadamente de 150 millones de dolares</referencia>
     </referencias>
     <fotos>
-        <foto img="BahrainNight.jpg" alt="Foto Bahreín de noche">Bahreín</foto>
-        <foto img="sakhir.png" alt="Mapa Bahreín">Mapa simple Bahreín</foto>
-        <foto img="xml/fotobahrain.jpg" alt="Curva Bahreín">Curva Bahreín</foto>
+        <foto img="./xml/BahrainNight.jpg" alt="Foto Bahreín de noche">Bahreín</foto>
+        <foto img="./xml/sakhir.png" alt="Mapa Bahreín">Mapa simple Bahreín</foto>
+        <foto img="./xml/fotobahrain.jpg" alt="Curva Bahreín">Curva Bahreín</foto>
     </fotos>
     <videos>
-        <video src="fastlap_bahrein.mp4">Fast Lap Pedro de la Rosa (2005) Bahreín</video>
+        <video src="./xml/fastlap_bahrein.mp4">Fast Lap Pedro de la Rosa (2005) Bahreín</video>
     </videos>
     <coordenada>
         <cooLongitud>50.51049998681525</cooLongitud>
@@ -372,9 +372,9 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.uniovi.e
         <tramo tipo="recta">
             <longitud measure="m">251.76</longitud>
             <coordenada>
-                <cooLongitud>50.51058727953555</cooLongitud>
-                <cooLatitud>26.03191343146865</cooLatitud>
-                <cooAltitud>7.235739210389815</cooAltitud>
+                <cooLongitud>50.51047083371996</cooLongitud>
+                <cooLatitud>26.03193066275648</cooLatitud>
+                <cooAltitud>7.235739210389814</cooAltitud>
             </coordenada>
             <numeroTramo>3</numeroTramo>
         </tramo>
@@ -383,8 +383,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.uniovi.e
         <tramo tipo="recta">
             <longitud measure="m">246.79</longitud>
             <coordenada>
-                <cooLongitud>50.51064218040562</cooLongitud>
-                <cooLatitud>26.03228570645899</cooLatitud>
+                <cooLongitud>50.51050003451592</cooLongitud>
+                <cooLatitud>26.03245879001592</cooLatitud>
                 <cooAltitud>7.580428159838261</cooAltitud>
             </coordenada>
             <numeroTramo>1</numeroTramo>

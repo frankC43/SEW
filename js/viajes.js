@@ -14,6 +14,9 @@ class Viajes {
         this.coords
         this.apikey = "AIzaSyCG2TuPk4XC9L5T6hnCm2afquBx4De-too"
         navigator.geolocation.getCurrentPosition(this.getPosicion.bind(this), this.verErrores.bind(this) )
+
+        this.carruselSlide = 5
+        this.maxCarruselSlide = 10
     }
 
     getPosicion(posicion){
@@ -29,6 +32,7 @@ class Viajes {
         this.errorGeoLocal = false    
 
         this.getStaticMap()  
+        this.initDynamicMap()
     }
     verErrores(error){
         switch(error.code) {
@@ -48,6 +52,7 @@ class Viajes {
         this.errorGeoLocal = true
 
         this.getStaticMap()
+        this.initDynamicMap()
     }
 
     getStaticMap() {
@@ -76,7 +81,7 @@ class Viajes {
 
     initDynamicMap(){
         let centerPos = {lat: this.coords.latitude, lng: this.coords.longitude}
-        let div = document.querySelector("section:nth-of-type(2) div")
+        let div = document.createElement("div")
 
         let geoPosMap = 
             new google.maps.Map(div,{
@@ -88,15 +93,46 @@ class Viajes {
         
         if (!this.errorGeoLocal) {
             window.setPosition(centerPos)
-            window.setContent(this.message)
+            window.setContent("Usted está aquí")
             window.open(geoPosMap)
             geoPosMap.setCenter(centerPos)
         } else {
             window.setContent(this.message)
             window.open(geoPosMap)
         }
-        
+        document.querySelector("section:nth-of-type(2)").append(div)
     }
+
+    createCarrusel(){
+        let carruselImgs = document.querySelector("main section:nth-of-type(3) article").querySelectorAll("img")
+        this.maxCarruselSlide = carruselImgs.length -1
+
+        let btnRight = document.querySelector("main section:nth-of-type(3) button:first-of-type")
+        btnRight.addEventListener('click', () => {
+            if (this.carruselSlide === this.maxCarruselSlide){
+                this.carruselSlide = 0
+            } else {
+                this.carruselSlide++
+            }
+            carruselImgs.forEach((img, index) => {
+                let transf = 100 * (index-this.carruselSlide)
+                $(img).css("transform", "translateX("+(transf)+"%)")
+            })
+        })
+        let btnLeft = document.querySelector("main section:nth-of-type(3) button:nth-of-type(2)")
+        btnLeft.addEventListener('click', () => {
+            if (this.carruselSlide === 0){
+                this.carruselSlide = this.maxCarruselSlide
+            } else {
+                this.carruselSlide--
+            }
+            carruselImgs.forEach((img, index) => {
+                let transf = 100 * (index-this.carruselSlide) 
+                $(img).css("transform", "translateX("+(transf)+"%)")
+            })
+        })
+    }
+
 }
 
 var viajes = new Viajes()

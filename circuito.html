@@ -8,15 +8,16 @@
     <meta name="keywords" content="Formula 1 Circuitos, F1 Circuito"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
     <title>F1 Desktop - Circuito</title>
-    <link href="/multimedia/imagenes/favicon-lance-stroll.jfif" rel="icon">
+    <link href="multimedia/imagenes/favicon-lance-stroll.jfif" rel="icon">
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css"/>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCG2TuPk4XC9L5T6hnCm2afquBx4De-too&loading=async"></script>
     <script 
         src="https://code.jquery.com/jquery-3.7.1.min.js" 
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous">
     </script>
-    <script src = "./js/circuito.js"></script>
+    <script src = "js/circuito.js"></script>
 </head>
 
 <body>
@@ -40,10 +41,23 @@
         <section>
             <h3>Subir archivo XML</h3>
             <label>
-                Añadir xml: <input type="file" onchange=circuito.processFile(this.files)>
+                Añadir xml: <input type="file" onchange=circuito.processXmlFile(this.files)>
             </label>
-
+        </section>
+        <section>
+            <h3>Subir archivo KML</h3>
+            <label>
+                Añadir kml: <input type="file" onchange=circuito.processKmlFile(this.files)>
+            </label>
+            <div></div>
+        </section>
+        <section>
+            <h3>Subir archivo SVG</h3>
+            <label>
+                Añadir svg: <input type="file" onchange="circuito.insertSvg(this.files)">
+            </label>
         </section>
     </main>
+    <footer></footer>
 </body>
 </html>

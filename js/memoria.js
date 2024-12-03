@@ -45,6 +45,7 @@ class Memoria {
         this.shuffleElements()
         this.createElements()
         this.addEventListeners()
+        this.getTutorial()
    }
 
    shuffleElements(){
@@ -145,29 +146,64 @@ class Memoria {
    }
 
    getTutorial(){
-        let isPre = document.querySelector("main aside").querySelectorAll("pre")[0]
-        if (isPre != undefined){
-            if (isPre.hidden)
-                isPre.hidden = false
-            else 
-                isPre.hidden = true
+        let areInsructions = document.querySelector("main aside article")
+        if (areInsructions != undefined){
+            areInsructions.style.display = areInsructions.style.display === "none" ? "flex" : "none";
+            let btn = document.querySelector("main aside button")
+            btn.textContent = areInsructions.style.display === "none" ? "Mostrar Instrucciones" : "Ocultar instrucciones"
         } else {
-            let pre = document.createElement("pre")
-            pre.textContent = 
-                "INSTRUCCIONES: Juego de memorización\n"+
-                "\t¿Cuál es el objetivo del juego?\n"+
-                "\t\tConseguir que todas las cartas de la baraja de memorización queden boca arriba.\n"+
-                "\t\tLas cartas quedan boca arriba cuando muestran el equipo de F1 al que representan.\n\n"+
-                "\t¿Cómo jugar?\n"+
-                "\t\tPulsa cualquiera de las cartas para que esta se de la vuelta y muestre el equipo de F1 representado.\n"+
-                "\t\tUna vez hayas pulsado 2 cartas de la baraja pueden pasar dos cosas:\n"+
-                "\t\t\t1. Las cartas son iguales\n"+
-                "\t\t\t\tSi las cartas son iguales estas se quedaran dadas la vuelta.\n"+
-                "\t\t\t2. Las cartas NO son iguales\n"+
-                "\t\t\t\tSi las cartas no son iguales estas trás un lapso de 2 segundos se volverán a su posición original\n"+
-                "\t\t\tRepite el proceso hasta que todas las cartas estén boca arriba"
+            let instArticle = document.createElement("article")
+            let inst = document.createElement("h2")
+            inst.textContent = "Instrucciones del Juego de Memoria"
+            instArticle.append(inst)
+
+            let objectivo = document.createElement("h4")
+            objectivo.textContent = "Objetivo del Juego"
+            instArticle.append(objectivo)
+
+            let p1 = document.createElement("p")
+            p1.textContent = "Consigue que todas las Tarjetas de Memorización queden dadas la vuelta."
+            instArticle.append(p1)
+
+            let reglas = document.createElement("h4")
+            reglas.textContent = "Reglas del Juego"
+            instArticle.append(reglas)
+
+            let p2 = document.createElement("p")
+            p2.textContent = "Las Tarjetas de Memoria se deben pulsar para que se den la vuelta. Pulsa máximo 2 Tarjetas de memoria seguidas."
+            instArticle.append(p2)
+
+            let h5 = document.createElement("p")
+            h5.textContent = "Una vez pulsadas dos Tarjetas de Memoria pueden suceder dos cosas:"
+            instArticle.append(h5)
+
+            let ol = document.createElement("ol")
+            let li1 = document.createElement("li")
+            li1.textContent="Las cartas son iguales"
+            ol.append(li1)
+
+            let pli1 = document.createElement("p")
+            pli1.textContent = "Si las cartas son iguales estas se quedarán dadas la vuelta mostrando la imagen previamente oculta"
+            ol.append(pli1)
+
+            let li2 = document.createElement("li")
+            li2.textContent = "Las cartas NO son iguales"
+            ol.append(li2)
+
+            let pli2 = document.createElement("p")
+            pli2.textContent = "Si NO son iguales, las cartas volverán a darse la vuelta despues de unos segundos, ocultando de nuevo su imagen. Repite de nuevo el intento."
+            ol.append(pli2)
+            instArticle.append(ol)
+
+            let hasGanado = document.createElement("h4")
+            hasGanado.textContent = "¿Cuando gano el juego de memoria?"
+            instArticle.append(hasGanado)
+
+            let p3 = document.createElement("p")
+            p3.textContent = "El Juego de Memoria se termina cuando todas las cartas queden mostrando la imagen que ocultan"
+            instArticle.append(p3)
             
-            document.querySelector("main aside").appendChild(pre)
+            document.querySelector("main aside").append(instArticle)
         }
    }
 

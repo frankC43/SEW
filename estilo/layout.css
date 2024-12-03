@@ -1,22 +1,39 @@
 /*especificidad 001*/
-header {
+body {
     display: flex;
-    flex-flow: row nowrap;
-    padding: 2%;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+/*especificidad 001*/
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/*especificidad 001*/
+header {
     align-items: center;
+    display: flex;
     justify-content: space-between;
+    padding: 2%;
     margin: 0%;
     
 }
 
-/*especificidad 001*/
-body {
-    margin: 0%
+/*especificidad 002*/
+header h1 {
+    display: flex;
+    margin: 0%;
 }
 
 /*especificidad 002*/
-header h1 {
-    margin: 0%;
+header nav {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 2.5em
 }
 
 /*especificidad 002*/
@@ -34,6 +51,8 @@ body > * {
 /*especificidad 001*/
 footer {
     padding: 2%;
+    margin-bottom: 0;
+    margin-top: 5%;
 }
 
 /*especificidad 001*/
@@ -69,8 +88,9 @@ main section video {
 /*especificidad 004*/
 body main aside p {
     margin: 0%;
-    line-height: 0;
 }
+
+
 
 /*especificidad 002*/
 main nav {
@@ -79,6 +99,8 @@ main nav {
         justify-items: center;
         text-align: center;
         font-size: 2em;
+        width: 60%;
+        align-self: center;
 }
 body aside:has(nav){
     display: grid;

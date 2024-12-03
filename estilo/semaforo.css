@@ -21,12 +21,14 @@ button {
     font-size: 2em;
 }
   
- section div {
-      background-color: #000A;
-      border: 5px solid black;
-      aspect-ratio: 1;
-      border-radius: 50%;
-  }
+section div {
+    background-color: #000A;
+    border: 5px solid black;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    width: auto;
+    height: auto;
+}
   
  button:first-of-type {
       grid-column: 2 / span 1;
@@ -70,18 +72,16 @@ section div.unload {
     animation-fill-mode: backwards;
 }
 
-main aside {
+main article {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
     height: auto;
     padding: 0;
-    margin-bottom: 10%;
-
 }
 
-main aside p {
+main article p {
     font-size: 3.5em;
     align-self: center;
 }
@@ -90,15 +90,29 @@ aside nav {
     margin-left: 1.5%;
 }
 
+main aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main form {
+    display: inline-flex;
+    flex-direction: column;
+    border: 0.3vh solid #36ABAB;
+    padding: 1%;
+    margin: 2%;
+}
+
 @media (max-width: 768px) {
-    main aside p {
+    main article p {
         font-size: 2.5em; 
         text-align: center;
         display: flex;
         flex-direction: column;
         padding-top: 15%;
     }
-    main aside {
+    main article {
         padding: 0;
         height: auto; 
     }
@@ -112,6 +126,8 @@ aside nav {
         gap: 10% 0;
         width: 100%;
     }
-
+    section div {
+        width: 10vw;
+    }
     
 }

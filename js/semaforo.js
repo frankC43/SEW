@@ -85,18 +85,71 @@ class Semaforo{
         this.click_moment = Date.now()
         let difference = (this.click_moment - this.unload_moment)
 
-        let isPAded = document.querySelector("main aside p")
+        let isPAded = document.querySelector("main article p")
         if (isPAded != null){
             isPAded.textContent = difference + "ms"
         } else {
             let timeShown = document.createElement("p")
             timeShown.textContent = difference +"ms"
-            document.querySelector("main aside").appendChild(timeShown)
+            document.querySelector("main article").appendChild(timeShown)
         }
         
 
         buttonUsed.disabled = true
+        
+        this.createRecordForm()
+
         let startButton = document.querySelector("main section button:first-of-type")
         startButton.onclick = () => this.initSequence(startButton)
+    }
+
+    createRecordForm(){
+        let aside = document.querySelector("main aside")
+        let form = document.createElement("form")
+        form.action='#' 
+        form.method='POST'
+        let labelName = document.createElement("label")
+        labelName.textContent = "Nombre: "
+        let inputName = document.createElement("input")
+        inputName.type = "text"
+        inputName.name="nombre"
+        labelName.append(inputName)
+        form.append(labelName)
+        
+        let labelSurname = document.createElement("label");
+        labelSurname.textContent = "Apellidos: ";
+        let inputSurname = document.createElement("input");
+        inputSurname.type = "text";
+        inputSurname.name = "apellidos"
+        labelSurname.append(inputSurname);
+        form.append(labelSurname);
+        
+        let labelDifficulty = document.createElement("label");
+        labelDifficulty.textContent = "Dificultad Jugada: ";
+        let inputDifficulty = document.createElement("input");
+        inputDifficulty.type = "text";
+        inputDifficulty.name = "nivel"
+        inputDifficulty.value = this.difficulty;
+        inputDifficulty.readOnly = true
+        labelDifficulty.append(inputDifficulty);
+        form.append(labelDifficulty);
+
+        let labelReactionTime = document.createElement("label");
+        labelReactionTime.textContent = "Tiempo de Reacción (ms): ";
+        let inputReactionTime = document.createElement("input");
+        inputReactionTime.type = "text"; 
+        inputReactionTime.name = "tiempo"
+        inputReactionTime.readOnly = true
+        inputReactionTime.value = this.click_moment - this.unload_moment;
+        labelReactionTime.append(inputReactionTime);
+        form.append(labelReactionTime);
+
+        let inputSubmit = document.createElement("input");
+        inputSubmit.type = "submit";
+        inputSubmit.value = "Guardar datos"
+        form.append(inputSubmit);
+
+        aside.append(form)
+
     }
 }

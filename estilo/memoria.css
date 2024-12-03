@@ -1,50 +1,3 @@
-/*especificidad 001*/
-article {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1%;
-    padding: 16.5% 11.5%;
-    transform: scale(1);
-    cursor: pointer;
-    transform-style: preserve-3d;
-    transition: transform .5s;
-    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
-}
-/*especificidad 011*/
-article[data-state=flip] {
-    transform: rotateY(180deg);
-}
-
-/*especificidad 011*/
-article[data-state=revealed] {
-    transform: rotateY(180deg);
-}
-/*especificidad 002*/
-article h3,
-/*especificidad 002*/
-article img {
-    margin: 0%;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    border-radius: 5px;
-    background: #36ABAB;
-    backface-visibility: hidden;
-    text-align: center;
-}
-/*especificidad 002*/
-article h3 {
-    font-size: 0.8em;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-/*especificidad 002*/
-article img {
-    transform: rotateY(180deg);
-}
 /*especificidad 003*/
 body main section {
     display: flex;
@@ -56,51 +9,135 @@ body main section {
 }
 /*especificidad 002*/
 body main {
+    display: block;
     width: 50%;
     height: 50%;
     align-items: center;
     justify-content: center;
     padding-left: 2%;
     padding-right: 2%;
-}
-/*especificidad 002*/
-body main {
     margin-left: 25%;
     margin-right: 25%;
 }
-/*especificidad 003*/
-body > main > h2 {
+
+/*especificidad 002*/
+section article {
+    display: flex;
     align-items: center;
     justify-content: center;
+    margin: 1%;
+    padding: 16.5% 11.5%;
+    transform: scale(1);
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform .5s;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+}
+/*especificidad 012*/
+section article[data-state=flip] {
+    transform: rotateY(180deg);
+}
+/*especificidad 011*/
+section article[data-state=revealed] {
+    transform: rotateY(180deg);
+}
+/*especificidad 013*/
+section article[data-state] img{
+    border: 0.15vh solid #36ABAB;
+}
+
+/*especificidad 002*/
+section article h3,
+/*especificidad 002*/
+section article img {
+    margin: 0%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /*border-radius: 5px;*/
+    background: #36ABAB;
+    backface-visibility: hidden;
+    text-align: center;
+}
+/*especificidad 002*/
+section article h3 {
+    font-size: 0.8em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+/*especificidad 002*/
+article img {
+    transform: rotateY(180deg);
+}
+
+/*especificidad 003*/
+body  main h2 {
     font-size: 1.5em;
 }
-
+/*especificidad 002*/
 main aside {
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 3.5%;
+}
+/*especificidad 003*/
+main aside article{
+    display: flex;
+    flex-direction: column;
+    margin: 2% 0;
+    padding: 3%;
+    border: 0.4vh solid #36ABAB;
+}
+/*especificidad 003*/
+main aside button {
+    font-size: 1.2em;
 }
 
-pre {
-    font-family: inherit;
-    width: max-content;
-    align-items: center;
-    border: 2px  solid #050505; 
-    padding: 2%;
+/*Los siguientes selectores modifican la cara oculta de las cartas para garantizar un contraste AAA en favor de la usabilidad
+  Dando al usuario más facilidades para encontrar las cartas pareja, mediante el uso del color de fondo y las letras de las imagenes con los logos
+*/
+/*especificidad 023*/
+section article[data-element='Alpine'][data-state] img{
+    background: #00EEFF;
 }
+/*especificidad 023*/
+section article[data-element='McLaren'][data-state] img{
+    background: #fa9b43;
+}
+/*especificidad 023*/
+section article[data-element='RedBull'][data-state] img {
+    background: #f5ff63;
+}
+/*especificidad 023*/
+section article[data-element='AstonMartin'][data-state] img {
+    background: #fff;
+}
+/*especificidad 023*/
+section article[data-element='Mercedes'][data-state] img {
+    background: #9cafff;
+}
+/*especificidad 023*/
+section article[data-element='Ferrari'][data-state] img {
+    background: #93ff7e;
+}
+
 
 @media screen and (max-width: 768px){ 
     body main {
         display: inline;
-        margin: 0;
+        margin: 0 1%;
         padding: 0;
     }
 
-    pre {
-        padding: 1%;
-        padding: 1%;
-        word-wrap: break-word; /* Corta palabras largas si es necesario */
-        white-space: pre-wrap; /* Ajusta líneas largas */
-        overflow-x: auto; /* Añade un scroll horizontal solo si es estrictamente necesario */
-        max-width: 90%; /* Asegúrate de que no desborde */
-        justify-self: center;
+    body main aside {
+        display: flex;
+        flex-direction: column;
+    }
+
+    main p {
+        display: inherit;
     }
 }

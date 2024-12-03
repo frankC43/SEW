@@ -11,19 +11,24 @@ class Svg:
         """
         Generate an SVG
         """
-        self.width = width
-        self.height = height
+        self.width = "100%"
+        self.height = "auto"
+        self.viewBox = "0 0 "+str(width)+" "+str(height)
+        self.preserveAspectRatio = "xMidYMid meet"
         self.raiz = ET.Element('svg', {
             'xmlns': "http://www.w3.org/2000/svg",
             'width': str(self.width),
-            'height': str(self.height)
+            'height': str(self.height),
+            'viewBox': str(self.viewBox),
+            'preserveAspectRatio':str(self.preserveAspectRatio)
         })
 
     def addPolyline(self, points: list, stroke_color: str = 'red', stroke_width: str = '3', fill_color: str = 'none'):
         
-        polyline = ET.SubElement(self.raiz, 'polyline', {
+        ET.SubElement(self.raiz, 'polyline', {
             'points': points,
-            'style': f"fill:{fill_color};stroke:{stroke_color};stroke-width:{stroke_width}"
+            'style': f"fill:{fill_color};stroke:{stroke_color};stroke-width:{stroke_width}",
+            'vector-effect': "non-scaling-stroke"
         })
 
     def escribir(self, nombreArchivoSVG: str):
@@ -34,14 +39,13 @@ class Svg:
         print(ET.tostring(self.raiz, encoding="unicode"))
 
 
-def xmlToSvg(archivoXML, archivoSvg, widthSvg=500, hightSvg=500, pointSeparationIndex=5):
+def xmlToSvg(archivoXML, widthSvg=500, hightSvg=500, pointSeparationIndex=5, f=5):
     """Functión para convertir un archivo XML a KML    
 Version: 1.0 25/Octubre/2024
 Author: Francisco Cimadevilla Cuanda
     """
     try:
-        
-        arbol = ET.parse(archivoXML)
+        tree = ET.parse('./xml/circuitoEsquema.xml')
     except IOError:
         print ('No se encuentra el archivo ', archivoXML)
         exit()
@@ -51,7 +55,6 @@ Author: Francisco Cimadevilla Cuanda
        
     namespace = {'ns': 'http://www.uniovi.es'}   
 
-    tree = ET.parse('circuitoEsquema.xml')
     root = tree.getroot() 
 
     tramos = root.findall('.//ns:tramo', namespaces=namespace)
@@ -59,14 +62,9 @@ Author: Francisco Cimadevilla Cuanda
     pointsStr = ""
     ratio = pointSeparationIndex
     for tramo in tramos:
-        tipo = tramo.get('tipo')
-        longitud = tramo.find('ns:longitud', namespaces=namespace).text
         coordenada = tramo.find('ns:coordenada', namespaces=namespace)
-        coo_longitud = coordenada.find('ns:cooLongitud', namespaces=namespace).text
-        coo_latitud = coordenada.find('ns:cooLatitud', namespaces=namespace).text
         coo_altitud = coordenada.find('ns:cooAltitud', namespaces=namespace).text
-        numero_tramo = tramo.find('ns:numeroTramo', namespaces=namespace).text
-        pointsStr = pointsStr + str(ratio)+','+str(coo_altitud)+' '
+        pointsStr = pointsStr + str(ratio*f)+','+str(float(coo_altitud)*f)+' '
         ratio+=pointSeparationIndex
    
     newFile = Svg(hightSvg, widthSvg)
@@ -81,7 +79,7 @@ def main():
     
     output_kml_File = input('Introduzca el nombre del fichero SVG destino = ')
     
-    procesado = xmlToSvg("circuitoEsquema.xml", output_kml_File,170,100,5)
+    procesado = xmlToSvg("circuitoEsquema.xml",150,1000,5)
 
 
     procesado.ver()
