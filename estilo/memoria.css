@@ -140,4 +140,7 @@ section article[data-element='Ferrari'][data-state] img {
     main p {
         display: inherit;
     }
+    body {
+        display: block;
+    }
 }
