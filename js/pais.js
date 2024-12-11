@@ -50,7 +50,7 @@ class Pais {
         let lon = coord[1].trim()
         let apiKey = "b3bd4eadb5bb9e302d5c5fa92666667f"
         
-        let apiCall = "http://api.openweathermap.org/data/2.5/forecast?lat="+lat+"&lon="+lon+"&appid="+apiKey+"&units=metric&mode=xml&lang=es"
+        let apiCall = "https://api.openweathermap.org/data/2.5/forecast?lat="+lat+"&lon="+lon+"&appid="+apiKey+"&units=metric&mode=xml&lang=es"
             $.ajax({
                 dataType: "xml",
                 url: apiCall,

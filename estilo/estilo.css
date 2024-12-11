@@ -50,37 +50,31 @@ header nav a.visited {
 /*especificidad 002*/
 body > p {
     background-color: #36ABAB ;
-    color: #F5F5F5;
+    color: #fff;
 }
 
 /*especificidad 002*/
 p > a{
     text-decoration-line: none;
-    color: #F5F5F5;
+    color: #fff;
     /*background-color is inherited from body*/
 }
 
 /*especificidad 001*/
 footer {
     background-color: #1C4345;
-    color:#F5F5F5
+    color:#fff
 }
 
 /*especificidad 002*/
 footer a {
-    color:#F5F5F5
+    color:#fff
     /*background-color is inherited from footer*/
 }
 
 /*especificidad 012*/
 nav a:hover{
    font-size: 1.5em;
-}
-
-/*especificidad 012*/
-main a:visited {
-    color: crimson;
-    /*background-color is inherited from main*/
 }
 
 main a:link {
@@ -109,7 +103,7 @@ ol {
 
 /*especificidad 001*/
 table {
-    background-color: #F5F5F5; 
+    background-color: #fff; 
     border: 3px  solid #050505; 
     /*color is inherited from body*/
 }
@@ -117,21 +111,21 @@ table {
 /*especificidad 002*/
 table caption {
     border: 2px  solid #050505; 
-    background-color: #F5F5F5; 
+    background-color: #fff; 
     /*color is inherited from body*/
 }
 
 /*especificidad 002*/
 table th {
     border: 2px solid #050505; 
-    background-color: #F5F5F5; 
+    background-color: #fff; 
     /*color is inherited from body*/
 }
 
 /*especificidad 002*/
 table td {
     border: 2px solid #050505; 
-    background-color: #F5F5F5; 
+    background-color: #fff; 
     /*color is inherited from body*/
 }
 
@@ -163,7 +157,7 @@ aside nav a {
 
 main nav a:visited,
 main nav a:link{
-    color:#F5F5F5
+    color:#fff
 }
 
 /*especificación 013*/

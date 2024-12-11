@@ -89,9 +89,9 @@
     <aside>
     <h2>Menú de Juegos</h2>
         <nav>
-            <a href="./memoria.html" title="Juego de Memoria">Juego de Memoria</a>
-            <a href="api.html" title="Aplicación con APIs">Aplicación con APIs</a>
-            <a href="datos.php" title="Aplicación Base de Datos">Aplicación Base de Datos</a>
+            <a href="./memoria.html" title="Accede al Juego de Memoria">Juego de Memoria</a>
+            <a href="api.html" title="Accede a la Aplicación con APIs">Aplicación con APIs</a>
+            <a href="datos.php" title="Accede a la Aplicación Base de Datos">Aplicación Base de Datos</a>
         </nav>
     </aside>
     <main>
