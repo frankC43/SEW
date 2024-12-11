@@ -1,12 +1,11 @@
 <?php 
     class Record {
-        protected $server;
-        protected $user;
-        protected $pass;
-        protected $dbname;
-        public $conn;
-        protected $dbFound;
-        protected $currentDifficultyLevel;
+        private $server;
+        private $user;
+        private $pass;
+        private $dbname;
+        private $conn;
+        private $currentDifficultyLevel;
 
         public function __construct(){
             $this->server = 'localhost';
@@ -34,10 +33,16 @@
             if ($this->currentDifficultyLevel){
                 $retTableInfo = $this->conn->query("SELECT * FROM registro WHERE nivel = ".$this->currentDifficultyLevel." ORDER BY tiempo ASC LIMIT 10");
                 if ($retTableInfo->num_rows > 0) {
+
+                    echo "<h3>Mejores Resultados en el Juego del Semáforo Nivel: ".$this->currentDifficultyLevel."</h3>";
+                    echo "<ul><li>Nombre\tApellidos\tTiempo</li></ul>";
+                    $html_ol = "<ol>";
                     while ($row = $retTableInfo->fetch_assoc()) {
-                        $html_row = "<li>".$row["nombre"]." ".$row["apellidos"]." ".$row["nivel"]." ".($row["tiempo"]/1000)." "."</li>";
-                        echo $html_row;
+                        $html_row = "<li>".$row["nombre"]."\t".$row["apellidos"]."\t".($row["tiempo"]/1000)."</li>";
+                        $html_ol .= $html_row;
                     }
+                    $html_ol .= "</ol>";
+                    echo $html_ol;
                 }
             }
             
@@ -82,10 +87,11 @@
     <p><a href="./index.html" title="Inicio">Inicio</a> >> <a href="./juegos.html" title="Juegos">Juegos</a> >> Juego de Memoria</p>
 
     <aside>
-    <h2>Juegos</h2>
+    <h2>Menú de Juegos</h2>
         <nav>
             <a href="./memoria.html" title="Juego de Memoria">Juego de Memoria</a>
-            <a href="./semaforo.html" title="Juego del Semaforo">Juego del Semaforo</a>
+            <a href="api.html" title="Aplicación con APIs">Aplicación con APIs</a>
+            <a href="datos.php" title="Aplicación Base de Datos">Aplicación Base de Datos</a>
         </nav>
     </aside>
     <main>
@@ -96,11 +102,9 @@
         <aside></aside>
     </main>
     <section>
-        <h3>Mejores Resultados en el Juego del Semáforo</h3>
-        <p>Nombre Apellidos Nivel Tiempo(seg)</p>
-        <ol>
-            <?php $record->getData() ?>
-        </ol>
+        
+        <?php $record->getData() ?>
+        
    </section>
     <footer>
 

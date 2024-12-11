@@ -1,0 +1,89 @@
+pais; 1 ; China
+pais; 2 ; Canadá
+pais; 3 ; Estados Unidos
+pais; 4 ; Reino Unido
+pais; 5 ; Tailandia
+pais; 6 ; Alemania
+pais; 7 ; Finlandia
+pais; 8 ; Francia
+pais; 9 ; Argentina
+pais; 10 ; Suiza
+pais; 11 ; Austria
+pais; 12 ; Australia
+pais; 13 ; Italia
+pais; 14 ; Nueva Zelanda
+pais; 15 ; Japón
+pais; 16 ; Mónaco
+pais; 17 ; Dinamarca
+pais; 18 ; España
+pais; 19 ; Países Bajos
+pais; 20 ; México
+piloto; 300 ; Alexander ; Albon ; 1996-03-23 ; 5
+piloto; 301 ; Fernando ; Alonso ; 1981-07-29 ; 18
+piloto; 302 ; Oliver ; Bearman ; 2005-05-08 ; 4
+piloto; 303 ; Valtteri ; Bottas ; 1989-08-28 ; 7
+piloto; 304 ; Franco ; Colapinto ; 2003-05-27 ; 9
+piloto; 305 ; Pierre ; Gasly ; 1996-02-07 ; 8
+piloto; 306 ; Jack ; Doohan ; 2003-01-20 ; 12
+piloto; 307 ; Lewis ; Hamilton ; 1985-01-07 ; 4
+piloto; 308 ; Nico ; Hülkenberg ; 1987-08-19 ; 6
+piloto; 309 ; Liam ; Lawson ; 2002-02-11 ; 14
+piloto; 310 ; Charles ; Leclerc ; 1997-10-16 ; 16
+piloto; 311 ; Kevin ; Magnussen ; 1992-10-05 ; 17
+piloto; 312 ; Lando ; Norris ; 1999-11-13 ; 4
+piloto; 313 ; Esteban ; Ocon ; 1996-09-17 ; 8
+piloto; 314 ; Sergio ; Pérez ; 1990-01-26 ; 20
+piloto; 315 ; Oscar ; Piastri ; 2001-04-06 ; 12
+piloto; 316 ; Daniel ; Ricciardo ; 1989-07-01 ; 12
+piloto; 317 ; George ; Russell ; 1998-02-15 ; 4
+piloto; 318 ; Carlos ; Sainz ; 1994-09-01 ; 18
+piloto; 319 ; Logan ; Sargeant ; 2000-12-31 ; 3
+piloto; 320 ; Lance ; Stroll ; 1998-10-29 ; 2
+piloto; 321 ; Yuki ; Tsunoda ; 2000-05-11 ; 15
+piloto; 322 ; Max ; Verstappen ; 1997-09-30 ; 19
+piloto; 323 ; Guanyu ; Zhou ; 1999-05-30 ; 1
+temporada;2024;2024
+escuderia; 2000 ; Alpine F1 Team ; 8
+escuderia; 2001 ; Aston Martin ; 4
+escuderia; 2002 ; Ferrari ; 13
+escuderia; 2003 ; Haas F1 Team ; 3
+escuderia; 2004 ; McLaren ; 4
+escuderia; 2005 ; Mercedes ; 6
+escuderia; 2006 ; RB F1 Team ; 13
+escuderia; 2007 ; Red Bull ; 11
+escuderia; 2008 ; Kick Sauber F1 Team ; 10
+escuderia; 2009 ; Williams ; 4
+vehiculo; 5000 ; RB20 ; 2007 ; 2024
+vehiculo; 5001 ; SF-24 ; 2002 ; 2024
+vehiculo; 5002 ; W15 ; 2005 ; 2024
+vehiculo; 5003 ; A524 ; 2000 ; 2024
+vehiculo; 5004 ; MCL38 ; 2004 ; 2024
+vehiculo; 5005 ; AMR24 ; 2001 ; 2024
+vehiculo; 5006 ; C44 ; 2008 ; 2024
+vehiculo; 5007 ; VF-24 ; 2003 ; 2024
+vehiculo; 5008 ; RB VCARB 01 ; 2006 ; 2024
+vehiculo; 5009 ; FW46 ; 2009 ; 2024
+piloto_temporada; 2024 ; 313 ; 2000
+piloto_temporada; 2024 ; 305 ; 2000
+piloto_temporada; 2024 ; 306 ; 2000
+piloto_temporada; 2024 ; 301 ; 2001
+piloto_temporada; 2024 ; 320 ; 2001
+piloto_temporada; 2024 ; 310 ; 2002
+piloto_temporada; 2024 ; 302 ; 2002
+piloto_temporada; 2024 ; 318 ; 2002
+piloto_temporada; 2024 ; 311 ; 2003
+piloto_temporada; 2024 ; 308 ; 2003
+piloto_temporada; 2024 ; 323 ; 2008
+piloto_temporada; 2024 ; 303 ; 2008
+piloto_temporada; 2024 ; 312 ; 2004
+piloto_temporada; 2024 ; 315 ; 2004
+piloto_temporada; 2024 ; 317 ; 2005
+piloto_temporada; 2024 ; 307 ; 2005
+piloto_temporada; 2024 ; 309 ; 2006
+piloto_temporada; 2024 ; 321 ; 2006
+piloto_temporada; 2024 ; 316 ; 2006
+piloto_temporada; 2024 ; 322 ; 2007
+piloto_temporada; 2024 ; 314 ; 2007
+piloto_temporada; 2024 ; 319 ; 2009
+piloto_temporada; 2024 ; 300 ; 2009
+piloto_temporada; 2024 ; 304 ; 2009

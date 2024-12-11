@@ -22,7 +22,7 @@
             $url = "https://www.flickr.com/services/rest/?".implode("&", $encoded_params);
             $response_flickr = file_get_contents($url);
             $response_obj = unserialize($response_flickr);
-            if ( $response_obj["stat"] == "ok") {
+            if ( $response_obj["stat"] === "ok") {
                 $this->fotos = array();
                 for ($i = 0; $i < count($response_obj["photos"]["photo"]); $i++) {
                     $imgSrc = $response_obj["photos"]["photo"][$i];
@@ -131,10 +131,9 @@
         <section>
             <h3>Carrusel de imágenes</h3>
             <article>
-                <?php 
-                    $carrusel->getImages();
-                ?>
-                
+                <figure>
+                    <?php $carrusel->getImages();?>
+                </figure>
             </article>
             <button> &gt; </button>
             <button> &lt; </button>

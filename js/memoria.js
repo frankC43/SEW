@@ -42,6 +42,8 @@ class Memoria {
         this.secondCard = null
         this.elements = this.elements.concat(this.elements)
 
+        this.isFinished = false
+
         this.shuffleElements()
         this.createElements()
         this.addEventListeners()
@@ -77,11 +79,35 @@ class Memoria {
    }
 
    checkForMatch(memoria){
-        
-        if (memoria.firstCard.dataset.element == memoria.secondCard.dataset.element)
+        if (memoria.firstCard.dataset.element == memoria.secondCard.dataset.element) 
             memoria.disableCards(memoria)
         else 
             memoria.unflipCards(memoria)
+        memoria.checkGameFinished(memoria)
+   }
+
+   checkGameFinished(memoria){
+       memoria.isFinished = true
+       document.querySelector("body main section")
+            .querySelectorAll("article[data-state]")
+            .forEach((card) => {
+            if (card.dataset.state != "revealed"){
+                memoria.isFinished = false
+            }
+        })
+        if (memoria.isFinished){
+            let msg = document.createElement("h3")
+            msg.textContent = "FIN DEL JUEGO"
+
+            let aside = document.querySelector("body main aside")
+            let section = document.querySelector("body main section")
+            aside.parentNode.insertBefore(msg, section)
+        } else {
+            let isMsg = document.querySelector("body main > h3")
+            if (isMsg != undefined){
+                isMsg.remove()
+            }
+        }
    }
 
    disableCards(memoria){
@@ -150,7 +176,7 @@ class Memoria {
         if (areInsructions != undefined){
             areInsructions.style.display = areInsructions.style.display === "none" ? "flex" : "none";
             let btn = document.querySelector("main aside button")
-            btn.textContent = areInsructions.style.display === "none" ? "Mostrar Instrucciones" : "Ocultar instrucciones"
+            btn.textContent = areInsructions.style.display === "none" ? "Ver más instrucciones" : "Ocultar instrucciones"
         } else {
             let instArticle = document.createElement("article")
             let inst = document.createElement("h2")

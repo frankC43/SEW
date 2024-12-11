@@ -49,6 +49,9 @@ class Noticias{
         $("section:last").find("input").each(function () {
             listInfo.push($(this).val())
         })
+        $("section:last").find("textarea").each(function () {
+            listInfo.push($(this).val())
+        })
         
         if (listInfo.length < 3)
             return;
@@ -69,6 +72,9 @@ class Noticias{
 
         //clean inputs
         $("section:last").find("input").each(function () {
+            $(this).val("");
+        });
+        $("section:last").find("textarea").each(function () {
             $(this).val("");
         });
     }

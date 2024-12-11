@@ -13,7 +13,7 @@ class Semaforo{
         var container = document.createElement("section")
 
         var title = document.createElement("h2")
-        title.textContent = "Juego de Reacción"
+        title.textContent = "Juego del Semáforo"
         container.appendChild(title)
 
         
