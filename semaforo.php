@@ -84,7 +84,7 @@
         </nav>
     </header>
 
-    <p><a href="./index.html" title="Inicio">Inicio</a> >> <a href="./juegos.html" title="Juegos">Juegos</a> >> Juego de Memoria</p>
+    <p><a href="./index.html" title="Inicio">Inicio</a> >> <a href="./juegos.html" title="Juegos">Juegos</a> >> Juego del Semáforo</p>
 
     <aside>
     <h2>Menú de Juegos</h2>

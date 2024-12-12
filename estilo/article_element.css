@@ -29,3 +29,13 @@ main section article p {
     font-size: 1em;
     color: #fff; 
 }
+
+@media screen and (max-width: 799px){
+    main section {
+        flex-direction: column;
+        align-items: center;
+    }
+    main section article {
+        width: 80%;
+    }
+}

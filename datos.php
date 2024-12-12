@@ -42,26 +42,52 @@
 
         public function cargarDatos(){
             $this->getConn();
-            $this->eliminarDatos();
+            $this->eliminarTablas();
+            $this->crearTablas();
             $this->insertarCSV("./php/fichero.csv");   
             $this->closeConn();
         }
 
-        public function eliminarDatos(){
+        public function eliminarTablas(){
             $this->conn->autocommit(false);
             $this->conn->begin_transaction();
             try {
-                $this->conn->query("DELETE FROM piloto_temporada");
-                $this->conn->query("DELETE FROM vehiculo");
+                $this->conn->query("DROP TABLE IF EXISTS  piloto_temporada ");
+                $this->conn->query("DROP TABLE IF EXISTS vehiculo");
 
-                $this->conn->query("DELETE FROM piloto");
-                $this->conn->query("DELETE FROM escuderia");
-                $this->conn->query("DELETE FROM pais");
-                $this->conn->query("DELETE FROM temporada");
+                $this->conn->query("DROP TABLE IF EXISTS piloto");
+                $this->conn->query("DROP TABLE IF EXISTS escuderia");
+                $this->conn->query("DROP TABLE IF EXISTS pais");
+                $this->conn->query("DROP TABLE IF EXISTS temporada");
                 $this->conn->commit();
             } catch (Exception $e) {
                 $this->conn->rollback();
                 exit("Error deleting all the data Error msg=".$e->getMessage());
+            }
+        }
+
+        public function crearTablas(){
+            $this->conn->autocommit(false);
+            
+            try {
+                $try_open = file_get_contents("./php/fichero.sql");
+                if ($try_open !== false) {
+                    $this->conn->begin_transaction();
+                    $statements = explode(";", $try_open);
+
+                    foreach ($statements as $statement) {
+                        $statement = trim($statement); 
+                        if (!empty($statement)) {
+                            $this->conn->query($statement . ";");
+                        }
+                    }
+
+                    $this->conn->commit();
+                }
+            }
+            catch (Exception $e) {
+                $this->conn->rollback();
+                exit("Error: Tratando de crear las tablas en la base de datos. ErrorMessage=".$e->getMessage());
             }
         }
 
@@ -157,7 +183,7 @@
             $this->conn->autocommit(false);
             $this->conn->begin_transaction();
 
-            $insert_into = "INSERT INTO %s (%s) VALUES (%s)";
+            $insert_into = "INSERT IGNORE INTO %s (%s) VALUES (%s)";
             $try_open = fopen($filepath,"r");
 
             if ($try_open !== false) {
@@ -395,12 +421,12 @@
         <h2>Menú de Juegos</h2>
         <nav>
             <a href="./memoria.html" title="Juego de Memoria">Juego de Memoria</a>
-            <a href="./semaforo.html" title="Juego del Semaforo">Juego del Semáforo</a>
+            <a href="./semaforo.php" title="Juego del Semaforo">Juego del Semáforo</a>
             <a href="./api.html" title="Aplicación con APIs">Aplicación con APIs</a>
         </nav>
     </aside>
     <main>
-        <h2>Base de datos privada</h2>
+        <h2>Base de Datos Privada F1</h2>
         <p>Consulta toda la información que hayas guardado sobre los pilotos de la Fórmula 1.</p>
         <section>
             <form action="#" method="POST">

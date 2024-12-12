@@ -171,15 +171,13 @@ section > div {
         font-size: 100%
     }
     /*espcificidad 002*/
-    body p {
+    body > p {
         display: none;
     }   
 }
 
-main section:has(svg){
-    align-items: center;
-}
 svg {
+    align-self: center;
     max-width: 1000px;
     margin: 0 auto;
     width: 100%;
@@ -188,7 +186,7 @@ svg {
 
 /*css del carrusel de imagenes*/
 /*especificidad 013*/
-main section:nth-of-type(3):has(article){
+aside:nth-child(4) {
     box-sizing: border-box;
     height: 60vh;
     margin: 0 auto;
@@ -198,7 +196,7 @@ main section:nth-of-type(3):has(article){
     position: relative;
 }
 /*especificidad 013*/
-main section:nth-of-type(3) article {
+main aside:nth-child(4) article {
     width: 100%;
     max-width: 100vh;
     padding: 0;
@@ -206,7 +204,7 @@ main section:nth-of-type(3) article {
     position: relative;
 }
 /*especificidad 014*/
-main section:nth-of-type(3) article img {
+main aside:nth-child(4) article img {
     transition: all 0.5s;
     width: 100%;
     max-width: 100vh;
@@ -214,8 +212,9 @@ main section:nth-of-type(3) article img {
     object-fit: cover;
     position: absolute;
 }
+
 /*especificidad 014*/
-main section:nth-of-type(3) button {
+main aside:nth-child(4) button {
     position: absolute;
     top: 50%;
     transform: translateY(-10%);
@@ -232,67 +231,17 @@ main section:nth-of-type(3) button {
     z-index: 10;
 }
 /*especificidad 023*/
-main section:nth-of-type(3) button:first-of-type {
+main aside:nth-child(4) button:first-of-type {
     right: 1em;
 }
 /*especificidad 023*/
-main section:nth-of-type(3) button:nth-of-type(2){
+main aside:nth-child(4) button:nth-of-type(2){
     left: 1em
 }
 /*especificidad 023*/
-main section:nth-of-type(3) button:active{
+main aside:nth-child(4) button:active{
     transform: scale(1.1);
 }
-
-/*
-main section:nth-of-type(3):has(figure){
-    display: grid;
-    place-items: center;
-}
-main section figure {
-    width: 100%;
-    max-width: 100vh;
-    height: auto;
-    position: relative;
-    border-radius: 1em;
-    overflow: hidden;
-}
-main section figure img {
-    width: 100%;
-    max-width: 100vh;
-    height: 60vh;
-    position: absolute;
-    transition: all 0.5s;
-    object-fit: cover;
-    border-radius: 0.5em;
-}
-main section button {
-    position: absolute;
-    width: 2em;
-    height: 2em;
-    padding: 0.5em;
-    border: none;
-    border-radius: 50%;
-    z-index: 10;
-    cursor: pointer;
-    background-color: #fff;
-    font-size: 1em;
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-    justify-content: center;
-}
-main section button:active{
-    transform: scale(1.1);
-}
-main section button:first-of-type{
-    top:50%;
-    right:2%;
-}
-main section button:nth-child(2){
-    top:50%;
-    left: 2%;
-}*/
 
 
 

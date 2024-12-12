@@ -26,7 +26,7 @@
                 $this->fotos = array();
                 for ($i = 0; $i < count($response_obj["photos"]["photo"]); $i++) {
                     $imgSrc = $response_obj["photos"]["photo"][$i];
-                    $this->fotos[] = "https://farm".$imgSrc["farm"].".staticflickr.com/".$imgSrc["server"]."/".$imgSrc["id"]."_".$imgSrc["secret"]."_b.jpg";
+                    $this->fotos[] = "https://farm".$imgSrc["farm"].".staticflickr.com/".$imgSrc["server"]."/".$imgSrc["id"]."_".$imgSrc["secret"]."_b.png";
                 }
             } else {
                 exit("<h2>ERROR al llamar a flickr</h2>");
@@ -128,7 +128,7 @@
             <h3>Mapa Dinámico</h3>
         </section>
 
-        <section>
+        <aside>
             <h3>Carrusel de imágenes</h3>
             <article>
                 <figure>
@@ -137,7 +137,7 @@
             </article>
             <button> &gt; </button>
             <button> &lt; </button>
-        </section>
+        </aside>
         <script>viajes.createCarrusel()</script>
         <section>
             <h3>Cambio de moneda</h3>
