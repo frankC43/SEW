@@ -52,7 +52,7 @@ section article img {
     width: 100%;
     height: 100%;
     position: absolute;
-    background: #36ABAB;
+    background: #1D5D5D;
     backface-visibility: hidden;
     text-align: center;
 }
@@ -121,11 +121,11 @@ section article[data-element='AstonMartin'][data-state] img {
 }
 /*especificidad 023*/
 section article[data-element='Mercedes'][data-state] img {
-    background: #9cafff;
+    background: #b4bfe7;
 }
 /*especificidad 023*/
 section article[data-element='Ferrari'][data-state] img {
-    background: #93ff7e;
+    background: #c6f0be;
 }
 
 

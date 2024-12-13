@@ -49,7 +49,7 @@ header nav a.visited {
 
 /*especificidad 002*/
 body > p {
-    background-color: #36ABAB ;
+    background-color: #1D5D5D ;
     color: #fff;
 }
 
@@ -78,7 +78,7 @@ nav a:hover{
 }
 
 main a:link {
-    color: #36ABAB    
+    color: #1D5D5D    
 }
 
 /*especificidad 003*/
@@ -150,7 +150,7 @@ nav a[class="activo"] {
 main nav a,
 aside nav a {
     border: solid #1C4345;
-    background-color: #36ABAB;
+    background-color: #1D5D5D;
     border-radius: 10px;
     margin: 5%;
 }
@@ -213,6 +213,12 @@ main aside:nth-child(4) article img {
     position: absolute;
 }
 
+button {
+    color: #fff;
+    background-color: #1D5D5D;
+    font-size: 1.5em;
+}
+
 /*especificidad 014*/
 main aside:nth-child(4) button {
     position: absolute;
@@ -220,7 +226,7 @@ main aside:nth-child(4) button {
     transform: translateY(-10%);
     width: 1.25em;
     height: 1.25em;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #fff;
     border: none;
     border-radius: 50%;
     font-size: 2em;

@@ -16,11 +16,16 @@ main section:first-of-type {
 }
 main section:first-of-type form {
     margin: 3%;
-    border: 0.5vw solid #36ABAB;
+    border: 0.5vw solid #1D5D5D;
+    padding: 1%;
+}
+
+form input {
+    font-size: 1em;
 }
 
 main section:nth-of-type(2){
-    border: 0.5vw solid #36ABAB;
+    border: 0.5vw solid #1D5D5D;
     margin: 3% 0;
 }
 
@@ -56,14 +61,17 @@ main section:nth-of-type(3){
 }
 
 main section:nth-of-type(3) article:first-of-type{
-    border: 0.95vw solid #36ABAB;
+    border: 0.95vw solid #1D5D5D;
+    background-color: #fff;
     margin: 2% 0;
+    color: #050505;
 }
 
 main section:nth-of-type(3) article{
-    background-color: #36ABAB;
+    background-color: #1D5D5D;
     color: #fff;
     margin: 1.5%;
+    width: 25%;
 }
 
 main section:nth-of-type(3) article h3{

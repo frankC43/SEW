@@ -104,7 +104,6 @@ main nav {
 }
 body aside:nth-child(3){
     display: grid;
-    width: 100%;
     padding: 0;
 }
 aside nav {

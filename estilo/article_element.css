@@ -12,10 +12,10 @@ main section article {
     justify-content: center;
     width: 14%;
     padding: 2%;
-    margin: 1%;
+    margin: 0.5%;
+    border: 0.2vw solid #1D5D5D;
     border-radius: 8px;
-    background-color: #36ABAB; /* Color de fondo suave */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff; 
     text-align: center;
 }
 /*especificidad 004*/
@@ -27,7 +27,7 @@ main section article img {
 main section article p {
     margin: 1%;
     font-size: 1em;
-    color: #fff; 
+    color: #050505; 
 }
 
 @media screen and (max-width: 799px){

@@ -89,25 +89,30 @@ class Memoria {
    checkGameFinished(memoria){
        memoria.isFinished = true
        document.querySelector("body main section")
-            .querySelectorAll("article[data-state]")
+            .querySelectorAll("article[data-element]")
             .forEach((card) => {
-            if (card.dataset.state != "revealed"){
+            if (card.dataset.state !== "revealed"){
                 memoria.isFinished = false
             }
         })
         if (memoria.isFinished){
-            let msg = document.createElement("h3")
-            msg.textContent = "FIN DEL JUEGO"
-
-            let aside = document.querySelector("body main aside")
-            let section = document.querySelector("body main section")
-            aside.parentNode.insertBefore(msg, section)
-        } else {
             let isMsg = document.querySelector("body main > h3")
-            if (isMsg != undefined){
-                isMsg.remove()
+            if (isMsg == undefined){
+                let msg = document.createElement("h3")
+                msg.textContent = "FIN DEL JUEGO"
+
+                let aside = document.querySelector("body main aside")
+                let section = document.querySelector("body main section")
+                aside.parentNode.insertBefore(msg, section)
+            } else {
+                if (memoria.isFinished){
+                    msg.hidden = true
+                }
+                else {
+                    msg.hidden = false
+                }
             }
-        }
+        } 
    }
 
    disableCards(memoria){

@@ -99,7 +99,7 @@ main aside {
 main form {
     display: inline-flex;
     flex-direction: column;
-    border: 0.3vh solid #36ABAB;
+    border: 0.3vh solid #1D5D5D;
     padding: 1%;
     margin: 2%;
 }
