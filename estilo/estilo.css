@@ -15,14 +15,13 @@ body {
 /*especificidad 001*/
 header {
     background-color: #1C4345;
-    
-    /*color is inherited from body*/
+    /*color de primer plano heredado de body*/
 }
 
 /*especificidad 002*/
 header a{
     color:#fff
-    /*background-color is inherited from header*/
+    /*color de fondo heredado del header*/
 }
 
 a {
@@ -39,7 +38,7 @@ header h1 a {
 header nav a {
     color: #fff;
     text-decoration-line: none;  
-    /*background-color is inherited from header*/
+    /*color de fondo heredado del header*/
 }
 
 /*especificidad 012*/
@@ -57,7 +56,7 @@ body > p {
 p > a{
     text-decoration-line: none;
     color: #fff;
-    /*background-color is inherited from body*/
+    /*color de fondo heredado del body*/
 }
 
 /*especificidad 001*/
@@ -69,150 +68,86 @@ footer {
 /*especificidad 002*/
 footer a {
     color:#fff
-    /*background-color is inherited from footer*/
+    /*color de fondo heredado del footer*/
 }
 
 /*especificidad 012*/
-nav a:hover{
-   font-size: 1.5em;
+nav a:hover, 
+ul a:hover{
+   font-size: 1.8em;
 }
 
 main a:link {
-    color: #1D5D5D    
+    color: #1D5D5D    /*color de fondo heredado del body*/
 }
 
 /*especificidad 003*/
 aside nav a {
-    color: #1C4345
-}
-
-/*especificidad 001*/
-ul {
-    list-style-type: square;
-}
-
-/*especificidad 001*/
-ul ul {
-    list-style-type: circle;
-}
-
-/*especificidad 001*/
-ol {
-    list-style-type: decimal-leading-zero;
+    color: #1C4345 /*color de fondo heredado del body*/
 }
 
 /*especificidad 001*/
 table {
     background-color: #fff; 
-    border: 3px  solid #050505; 
-    /*color is inherited from body*/
+    border: 0.5vw  solid #050505; 
+    /*color de primer plano heredado del body*/
 }
 
 /*especificidad 002*/
-table caption {
-    border: 2px  solid #050505; 
-    background-color: #fff; 
-    /*color is inherited from body*/
-}
-
+table caption,
 /*especificidad 002*/
-table th {
-    border: 2px solid #050505; 
-    background-color: #fff; 
-    /*color is inherited from body*/
-}
-
+table th,
 /*especificidad 002*/
 table td {
-    border: 2px solid #050505; 
-    background-color: #fff; 
-    /*color is inherited from body*/
+    border: 0.5vw solid #050505; 
+    background-color: #fff;     /*color de primer plano heredado del body*/
 }
 
 /*especificidad 002*/
 table tr {
-    border-bottom: 3px solid #050505; 
-}
-
-/*especificidad 003*/
-main section video {
-    width:50%;
-    height:auto;
+    border-bottom: 0.5vw solid #050505; 
 }
 
 /*especificidad 012*/
 nav a[class="activo"] {
     color: #92DDDD;
-    font-size: 130%;
-    /*background-color is inherited from header*/
+    font-size: 130%;    /*color de primer plano heredado del header*/
 }
 
-main nav a,
-aside nav a {
+/*especificidad 003*/
+main ul a,
+/*especificidad 003*/
+aside ul a {
     border: solid #1C4345;
     background-color: #1D5D5D;
     border-radius: 10px;
-    margin: 5%;
+    color: #fff;
+    font-size: 1.7em;
 }
 
+/*especificidad 017*/
+body > main > section:nth-child(2) > article > ul > li > a {
+    border: 0; 
+    background-color: #fff; 
+    border-radius: 0; 
+    color: #1D5D5D;
+    font-size: 1.5em;
+}
+/*especificidad 013*/
 main nav a:visited,
+/*especificidad 013*/
 main nav a:link{
-    color:#fff
+    color:#fff /*color de primer plano heredado del body*/
 }
 
-/*especificación 013*/
-section > div {
-    width: 100%;
-    height: 60vh;
-}
-
-@media screen and (max-width: 768px){
-    html {
-        font-size: 100%
-    }
-    /*espcificidad 002*/
-    body > p {
-        display: none;
-    }   
-}
-
+/*especificidad 001*/
 svg {
-    align-self: center;
-    max-width: 1000px;
-    margin: 0 auto;
-    width: 100%;
-    height: auto;
+    fill:lightblue;
+    stroke:#1C4345;
+    stroke-width:3    
 }
 
-/*css del carrusel de imagenes*/
-/*especificidad 013*/
-aside:nth-child(4) {
-    box-sizing: border-box;
-    height: 60vh;
-    margin: 0 auto;
-    overflow: hidden;
-    width: 100%;
-    max-width: 100vh;
-    position: relative;
-}
-/*especificidad 013*/
-main aside:nth-child(4) article {
-    width: 100%;
-    max-width: 100vh;
-    padding: 0;
-    margin: 0;
-    position: relative;
-}
-/*especificidad 014*/
-main aside:nth-child(4) article img {
-    transition: all 0.5s;
-    width: 100%;
-    max-width: 100vh;
-    height: 60vh;
-    object-fit: cover;
-    position: absolute;
-}
-
+/*especificidad 001*/
 button {
     color: #fff;
     background-color: #1D5D5D;
@@ -221,49 +156,14 @@ button {
 
 /*especificidad 014*/
 main aside:nth-child(4) button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-10%);
-    width: 1.25em;
-    height: 1.25em;
-    background-color: #fff;
     border: none;
     border-radius: 50%;
     font-size: 2em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-}
-/*especificidad 023*/
-main aside:nth-child(4) button:first-of-type {
-    right: 1em;
-}
-/*especificidad 023*/
-main aside:nth-child(4) button:nth-of-type(2){
-    left: 1em
-}
-/*especificidad 023*/
-main aside:nth-child(4) button:active{
-    transform: scale(1.1);
 }
 
-
-
-/*
-Paleta:
-red: #9F0909
-black: #050505
-scorpion: #5C5C5C
-drwn pink: #F6EAEA
-*/
-
-/*
-Paleta nueva
-Black Green: #1C4345
- --Green: #319C9C--notUsed
-Light Green: #CDD5D1
-black: #050505
-withe: #fff
-*/
+@media screen and (max-width: 768px){
+    /*especificidad 001*/
+    html {
+        font-size: 100% /*redefinición del tamaño de letra*/
+    } 
+}

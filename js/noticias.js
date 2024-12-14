@@ -64,7 +64,7 @@ class Noticias{
         
         article.append(img);
         
-        article.append("<p>Titular: " + listInfo[0] + "</p>");
+        article.append("<h4>Titular: " + listInfo[0] + "</h4>");
         article.append("<p>Entradilla: " + listInfo[1] + "</p>");
         article.append("<p>Autor: " + listInfo[2] + "</p>");
         

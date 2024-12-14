@@ -17,8 +17,6 @@ class Svg:
         self.preserveAspectRatio = "xMidYMid meet"
         self.raiz = ET.Element('svg', {
             'xmlns': "http://www.w3.org/2000/svg",
-            'width': str(self.width),
-            'height': str(self.height),
             'viewBox': str(self.viewBox),
             'preserveAspectRatio':str(self.preserveAspectRatio)
         })
@@ -27,7 +25,6 @@ class Svg:
         
         ET.SubElement(self.raiz, 'polyline', {
             'points': points,
-            'style': f"fill:{fill_color};stroke:{stroke_color};stroke-width:{stroke_width}",
             'vector-effect': "non-scaling-stroke"
         })
 

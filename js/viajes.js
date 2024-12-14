@@ -32,7 +32,7 @@ class Viajes {
         this.errorGeoLocal = false    
 
         this.getStaticMap()  
-        this.initDynamicMap()
+        this.esperarPorGoogle(() =>  this.initDynamicMap() )
     }
     verErrores(error){
         switch(error.code) {
@@ -79,6 +79,20 @@ class Viajes {
         }
     }
 
+    /**
+     * Espera a que los dos objetos necesarios para generar el mapa dinámico esten cargados.
+     * Cada 100 millisegundos se hace un check de ambos objetos.
+     * @param {initDynamicMap} callbackFunc funcción a ejecutar una vez los objetos de la api de mapas dinámicos de google este cargada
+     */
+    esperarPorGoogle(callbackFunc){
+        const interval = setInterval(() => {
+            if ( google !== undefined &&  google.maps !== undefined) {
+                clearInterval(interval); 
+                callbackFunc();
+            }
+        }, 1000); 
+    }
+
     initDynamicMap(){
         let centerPos = {lat: this.coords.latitude, lng: this.coords.longitude}
         let div = document.createElement("div")
@@ -104,10 +118,10 @@ class Viajes {
     }
 
     createCarrusel(){
-        let carruselImgs = document.querySelector("main section:nth-of-type(3) article").querySelectorAll("img")
+        let carruselImgs = document.querySelector("aside:nth-child(4) figure").querySelectorAll("img")
         this.maxCarruselSlide = carruselImgs.length -1
 
-        let btnRight = document.querySelector("main section:nth-of-type(3) button:first-of-type")
+        let btnRight = document.querySelector("main aside:nth-child(4) button:first-of-type")
         btnRight.addEventListener('click', () => {
             if (this.carruselSlide === this.maxCarruselSlide){
                 this.carruselSlide = 0
@@ -119,7 +133,7 @@ class Viajes {
                 $(img).css("transform", "translateX("+(transf)+"%)")
             })
         })
-        let btnLeft = document.querySelector("main section:nth-of-type(3) button:nth-of-type(2)")
+        let btnLeft = document.querySelector("main aside:nth-child(4) button:nth-of-type(2)")
         btnLeft.addEventListener('click', () => {
             if (this.carruselSlide === 0){
                 this.carruselSlide = this.maxCarruselSlide

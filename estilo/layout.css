@@ -33,6 +33,7 @@ header nav {
     align-items: center;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 2em
 }
 
@@ -56,6 +57,33 @@ footer {
 }
 
 /*especificidad 001*/
+main section ul {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 5%;
+    unicode-bidi: isolate;
+    list-style-type: square;
+}
+
+main section li {
+    display: list-item;
+    margin: inherit;
+    text-align: initial;
+}
+
+/*especificidad 001*/
+ul ul {
+    list-style-type: circle;
+}
+
+/*especificidad 001*/
+ol {
+    list-style-type: decimal-leading-zero;
+}
+
+/*especificidad 001*/
 table {
     width: 80%;
     border-collapse: collapse; 
@@ -67,30 +95,28 @@ table {
 /*especificidad 002*/
 table caption {
     border-bottom: none;
-    padding: 10px;
+    padding: 1%;
+    word-wrap: break-word;
 }
 
 /*especificidad 002*/
-table th {
-    padding: 10px;
+table th ,
+/*especificidad 002*/
+table td{
+    padding: 1%;
+    word-wrap: break-word;
 }
 
-/*especificidad 002*/
-table td {
-    padding: 10px;
-}
-
-/*especificidad 002*/
+/*especificidad 003*/
 main section video {
-    text-align: center;
+    width:50%;
+    height:auto;
 }
 
 /*especificidad 004*/
 body main aside p {
     margin: 0%;
 }
-
-
 
 /*especificidad 002*/
 main nav {
@@ -102,10 +128,54 @@ main nav {
         width: 60%;
         align-self: center;
 }
+/*especificidad 002*/
+main ul, 
+/*especificidad 002*/
+aside ul {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+}
+/*especificidad 002*/
+main ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+/*especificidad 002*/
+aside ul 
+{
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+/*especificidad 002*/
+ul li {
+    display: contents;
+    margin: 3%;
+    text-align: center;
+}
+
+/*especificidad 003*/
+main ul a,
+/*especificidad 003*/
+aside ul a { 
+    margin: 5%;
+}
+/*especificidad 017*/
+body > main > section:nth-child(2) > article > ul > li > a {
+    margin: 0; 
+}
+
+/*especificidad 012*/
 body aside:nth-child(3){
     display: grid;
     padding: 0;
 }
+/*especificidad 002*/
 aside nav {
     display: grid;
     grid-template-columns: repeat(2,1fr);
@@ -115,46 +185,123 @@ aside nav {
     align-self: center;
 
 }
-
+/*especificidad 003*/
 aside nav a {
     color: #fff;
     font-size: 2em;
 }
-
+/*especificidad 012*/
 aside:nth-child(3) h2 {
     grid-column: 1/-1;
     text-align: center;
 }
 
-@media screen and (max-width: 768px){
+/*especificación 002*/
+section > div {
+    width: 100%;
+    height: 60vh;
+}
 
+/*especificidad 001*/
+svg {
+    align-self: center;
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+}
+
+/*especificidad 011*/
+aside:nth-child(4) {
+    box-sizing: border-box;
+    height: 60vh;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100vh;
+    position: relative;
+}
+
+/*especificidad 013*/
+main aside:nth-child(4) figure {
+    width: 100%;
+    max-width: 100vh;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+/*especificidad 014*/
+main aside:nth-child(4) figure img {
+    transition: all 0.5s;
+    width: 100%;
+    max-width: 100vh;
+    height: 60vh;
+    object-fit: cover;
+    position: absolute;
+}
+
+/*especificidad 014*/
+section article section:first-of-type > img {
+    width: 50%;
+    height: auto;
+    align-self: center;
+}
+
+/*especificidad 014*/
+main aside:nth-child(4) button { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-10%);
+    width: 1.25em;
+    height: 1.25em;
+}
+
+/*especificidad 023*/
+main aside:nth-child(4) button:first-of-type {
+    right: 1em;
+}
+/*especificidad 023*/
+main aside:nth-child(4) button:nth-of-type(2){
+    left: 1em
+}
+/*especificidad 023*/
+main aside:nth-child(4) button:active{
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px){
+     /*espcificidad 002*/
+    body > p {
+        display: none; /*eliminar de la versión móvil las migas de pan*/
+    }  
     /*espcificidad 001*/
     header {
-        display: flex ;
+        display: flex ; /*redefinición del display del header para la versión móvil*/
         flex-direction: column;
-        padding: 2%;
-        align-items: center;
-        justify-content: space-between;
-        margin: 0%;
+        padding: 2%; /*redefinición del padding del header para la versión móvil*/
+        align-items: center; /*redefinición de la alineación de los items del header para la versión móvil*/
+        justify-content: space-between; /*redefinición del espacio entre los items del header para la versión móvil*/
+        margin: 0%; /*redefinición del margin del header para la versión móvil*/
     }
-
+    /*especificidad 002*/
     header nav {
-        display: grid;
+        display: grid;  /*redefinición del display del nav para la versión móvil*/
         grid-template-columns: repeat(3, 1fr);
         justify-items: center;
         padding-top: 5%;
     }
+    /*especificidad 002*/
     nav a{
         padding: 5%;
     }
-
+    /*especificidad 002*/
     aside nav {
-        justify-content: center;
-    }
-
-    aside nav a {
-        color: #fff;
-        font-size: 1em;
+        justify-content: center;  /*redefinición de la justificación del contenido del nav para la versión móvil*/
     }
 
     

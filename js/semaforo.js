@@ -9,8 +9,7 @@ class Semaforo{
     }
     
     createStructure(){
-        var mainContainer = document.querySelector("main")
-        var container = document.createElement("section")
+        var container = document.querySelector("main")
 
         var title = document.createElement("h2")
         title.textContent = "Juego del Semáforo"
@@ -40,12 +39,11 @@ class Semaforo{
         }
         container.appendChild(buttonEnd)
         
-        mainContainer.appendChild(container)
     }
 
     initSequence(buttonUsed){
        buttonUsed.onclick = null
-       let divs = document.querySelectorAll("main section div")
+       let divs = document.querySelectorAll("main div")
        const loadDelay = this.difficulty*100
        const totalLoadTime = loadDelay + 2000
 
@@ -69,7 +67,7 @@ class Semaforo{
                   item.classList.add("unload")
                 }))
 
-                document.querySelector("main section button:last-of-type")
+                document.querySelector("main button:last-of-type")
                 .disabled = false
 
                 this.unload_moment = Date.now()
@@ -85,11 +83,16 @@ class Semaforo{
         this.click_moment = Date.now()
         let difference = (this.click_moment - this.unload_moment)
 
-        let isPAded = document.querySelector("main article p")
+        let isArticle = document.querySelector("main article")
+        if (isArticle == null) {
+            let article = document.createElement("article")
+            document.querySelector("main").appendChild(article)
+        }
+        let isPAded = document.querySelector("main article h3")
         if (isPAded != null){
             isPAded.textContent = difference + "ms"
         } else {
-            let timeShown = document.createElement("p")
+            let timeShown = document.createElement("h3")
             timeShown.textContent = difference +"ms"
             document.querySelector("main article").appendChild(timeShown)
         }
@@ -99,11 +102,19 @@ class Semaforo{
         
         this.createRecordForm()
 
-        let startButton = document.querySelector("main section button:first-of-type")
+        let startButton = document.querySelector("main button:first-of-type")
         startButton.onclick = () => this.initSequence(startButton)
     }
 
     createRecordForm(){
+        let isAside = document.querySelector("main aside")
+        if (isAside == null){
+            isAside = document.createElement("aside")
+            let h3 = document.createElement("h3")
+            h3.textContent = "Formularios para Guardar Resultados"
+            isAside.appendChild(h3)
+            document.querySelector("main").appendChild(isAside)
+        }
         let aside = document.querySelector("main aside")
         let form = document.createElement("form")
         form.action='#' 

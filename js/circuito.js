@@ -46,7 +46,7 @@ class Circuito {
         switch(TreeNode.nodeName){
             case 'nombre':
                 container.append(
-                    '<h1>'+TreeNode.textContent+'</h1>'
+                    '<h4>'+TreeNode.textContent+'</h4>'
                 )
                 break;
             case 'pais':
@@ -80,11 +80,12 @@ class Circuito {
                         )   
                     }
                 )
-                container.append("<h2>Referencias<h2>")
+                container.append("<h5>Referencias</h5>")
                 container.append(refs)
                 break;
             case 'fotos':
                 let fotos = $("<section></section>")
+                fotos.append("<h5>Fotos</h5>")
                 Array.from(TreeNode.children).forEach(node => {
                     fotos.append(
                         $("<img>")
@@ -92,11 +93,12 @@ class Circuito {
                             .attr("alt", node.getAttribute("alt"))
                     )
                 })
-                container.append("<h2>Fotos<h2>")
+                
                 container.append(fotos)
                 break;
             case 'videos':
                 let videos = $("<section></section>")
+                videos.append("<h5>Videos</h5>")
                 Array.from(TreeNode.children).forEach(node => {
                         let video = $("<video></video>")
                             .attr("controls", true)
@@ -105,11 +107,12 @@ class Circuito {
                         video.append(source)
                         videos.append(video)
                 })
-                container.append("<h2>Videos<h2>")
+                
                 container.append(videos)
                 break;
             case 'coordenada':
                 let coordList = $("<section></section>")
+                coordList.append("<h5>Coordenadas Circuito</h5>")
                 let items = $("<ul></ul>") 
                 Array.from(TreeNode.children).forEach( node =>{
                         let name = node.nodeName.substring(3, node.nodeName.length)
@@ -120,11 +123,10 @@ class Circuito {
                     }
                 )
                 coordList.append(items)
-                container.append("<h2>Coordenadas Circuito<h2>")
                 container.append(coordList)
                 break;
             case 'tramos':
-                let tramosTable = $("<table></table>")  
+                let tramosTable = $("<table><caption>Tramos</caption></table>")  
                 tramosTable.append(
                     "<thead>\
                         <tr> \
@@ -139,7 +141,7 @@ class Circuito {
                     <tbody></tbody>"
                 )
 
-                $(TreeNode.children).each( function () {
+                $(TreeNode.children).each( function (index) {
                     let row = $("<tr></tr>");
                     let tipo = $(this).attr("tipo")
                     let longitud = $(this).find("longitud").text()
@@ -151,18 +153,17 @@ class Circuito {
                     let cooAltitud = coord.find("cooAltitud").text() 
                     
                     row.append(`
-                        <th scope="row" id="tipo-${numeroTramo}" headers="tipoTramo">${tipo}</th>
-                        <td headers="tipo-${numeroTramo} longitudTramo">${longitud}</td>
-                        <td headers="tipo-${numeroTramo} longitudGeo">${cooLongitud}</td>
-                        <td headers="tipo-${numeroTramo} latitudGeo">${cooLatitud}</td>
-                        <td headers="tipo-${numeroTramo} altitudGeo">${cooAltitud}</td>
-                        <td headers="tipo-${numeroTramo} numeroTramo">${numeroTramo}</td>
+                        <th scope="row" id="tipo-${index}" headers="tipoTramo">${tipo}</th>
+                        <td headers="tipo-${index} longitudTramo">${longitud}</td>
+                        <td headers="tipo-${index} longitudGeo">${cooLongitud}</td>
+                        <td headers="tipo-${index} latitudGeo">${cooLatitud}</td>
+                        <td headers="tipo-${index} altitudGeo">${cooAltitud}</td>
+                        <td headers="tipo-${index} numeroTramo">${numeroTramo}</td>
                     `);
         
                     tramosTable.find("tbody").append(row);
                     
                 })
-                container.append("<h2>Tramos</h2>")
                 container.append(tramosTable)
                 break;
             default:
@@ -175,7 +176,7 @@ class Circuito {
         if (this.canUseFile){
             let file = files[0] 
             
-            let isAlreadyOpened= document.querySelector("main section:first-of-type div")
+            let isAlreadyOpened= document.querySelector("main section:nth-of-type(3) div > *")
             if (isAlreadyOpened != undefined)
                 isAlreadyOpened.remove()
             
@@ -191,7 +192,7 @@ class Circuito {
                     const kmlAsDom = parser.parseFromString(kmlAsString, "application/xml")
                     let coordinates = $(kmlAsDom).find("coordinates")
 
-                    let container = document.querySelector("main section:nth-of-type(2) div")
+                    let container = document.querySelector("main section:nth-of-type(3) div")
 
                     this.showKmlDynamicMap(coordinates, container)
 
@@ -243,7 +244,7 @@ class Circuito {
         if (this.canUseFile){
             let file = files[0] 
             
-            let isAlreadyOpened= document.querySelector("main section:nth-of-type(3) svg")
+            let isAlreadyOpened= document.querySelector("main section:nth-of-type(2) svg")
             if (isAlreadyOpened != undefined)
                 isAlreadyOpened.remove()
             
@@ -259,7 +260,7 @@ class Circuito {
                     const svgAsDom = parser.parseFromString(svgAsString, "application/xml")
                     let svg = $(svgAsDom).find("svg")
                     
-                    $("main section:nth-of-type(3)").append(svg)
+                    $("main section:nth-of-type(2)").append(svg)
                    
                 }.bind(this) 
                 lector.readAsText(file)

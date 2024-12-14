@@ -17,6 +17,12 @@ body main {
     margin-left: 25%;
     margin-right: 25%;
 }
+/*especificidad 003*/
+main section h3 {
+    width: 100%;
+    text-align: center;
+    align-self: center;
+}
 
 /*especificidad 002*/
 section article {
@@ -52,7 +58,7 @@ section article img {
     width: 100%;
     height: 100%;
     position: absolute;
-    background: #1D5D5D;
+    background: #1D5D5D; /*color de primer plano heredado de body, estilo.css*/
     backface-visibility: hidden;
     text-align: center;
 }
@@ -84,7 +90,7 @@ main aside {
 }
 /*especificidad 003*/
 main aside article{
-    display: none;
+    display: flex;
     flex-direction: column;
     margin: 2% 0;
     padding: 3%;
@@ -94,59 +100,62 @@ main aside article{
 main aside button {
     font-size: 1.2em;
 }
-
+/*especificidad 002*/
 main > h3 {
     text-align: center;
     font-size: 2em;
 }
 
-/*Los siguientes selectores modifican la cara oculta de las cartas para garantizar un contraste AAA en favor de la usabilidad
-  Dando al usuario más facilidades para encontrar las cartas pareja, mediante el uso del color de fondo y las letras de las imagenes con los logos
+/*Los siguientes selectores modifican la cara oculta de las cartas en favor de la usabilidad.
+  Dando al usuario más facilidades para encontrar las parejas de cartas, 
+  mediante el uso del color de fondo y las letras de las imagenes con los logos.
 */
 /*especificidad 023*/
 section article[data-element='Alpine'][data-state] img{
-    background: #00EEFF;
+    background: #00EEFF; /*color de primer plano heredado de body, estilo.css*/
 }
 /*especificidad 023*/
 section article[data-element='McLaren'][data-state] img{
-    background: #fa9b43;
+    background: #fa9b43; /*color de primer plano heredado de body, estilo.css*/
 }
 /*especificidad 023*/
 section article[data-element='RedBull'][data-state] img {
-    background: #f5ff63;
+    background: #f5ff63; /*color de primer plano heredado de body, estilo.css*/
 }
 /*especificidad 023*/
 section article[data-element='AstonMartin'][data-state] img {
-    background: #fff;
+    background: #fff; /*color de primer plano heredado de body, estilo.css*/
 }
 /*especificidad 023*/
 section article[data-element='Mercedes'][data-state] img {
-    background: #b4bfe7;
+    background: #b4bfe7; /*color de primer plano heredado de body, estilo.css*/
 }
 /*especificidad 023*/
 section article[data-element='Ferrari'][data-state] img {
-    background: #c6f0be;
+    background: #c6f0be; /*color de primer plano heredado de body, estilo.css*/
 }
 
 
 @media screen and (max-width: 850px){ 
+    /*especificidad 002*/
     body main {
-        display: inline;
-        margin: 0 1%;
-        padding: 0;
+        display: inline; /*redefinición del display para dispositivos con ancho de pantalla máximo de 850px*/
+        margin: 0 1%; /*redefinición del margen*/
+        padding: 0; /*redefinición del padding*/
     }
-
+    /*especificidad 003*/
     body main aside {
         display: flex;
         flex-direction: column;
     }
-
+    /*especificidad 002*/
     main p {
         display: inherit;
         padding: 2% 5%;
         margin: 0 5%;
         text-align: center;
     }
+    /*especificidad 001*/
     body {
         display: block;
     }

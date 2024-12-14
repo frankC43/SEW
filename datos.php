@@ -314,9 +314,10 @@
             if (isset($_GET["Piloto"])) {
                 $piloto = preg_split('/\s+/', trim($_GET["Piloto"]));
                 $this->getConn();
-
+                echo "<section><h4>Piloto:</h4>";
                 $this->pintarPiloto( $piloto);
                 $this->pintarSusTemporadas($piloto);
+                echo "</section>";
                 
                 $this->closeConn();
             }
@@ -419,16 +420,17 @@
 
     <aside>
         <h2>Menú de Juegos</h2>
-        <nav>
-            <a href="./memoria.html" title="Juego de Memoria">Juego de Memoria</a>
-            <a href="./semaforo.php" title="Juego del Semaforo">Juego del Semáforo</a>
-            <a href="./api.html" title="Aplicación con APIs">Aplicación con APIs</a>
-        </nav>
+        <ul>
+            <li><a href="./memoria.html" title="Juego de Memoria">Juego de Memoria</a></li>
+            <li><a href="./semaforo.php" title="Juego del Semaforo">Juego del Semáforo</a></li>
+            <li><a href="./api.html" title="Aplicación con APIs">Aplicación con APIs</a></li>
+        </ul>
     </aside>
     <main>
         <h2>Base de Datos Privada F1</h2>
         <p>Consulta toda la información que hayas guardado sobre los pilotos de la Fórmula 1.</p>
         <section>
+            <h3>Operaciones en la base de datos...</h3>
             <form action="#" method="POST">
                 <input type="submit" name="CargarDatos" value="Cargar tablas y datos">
             </form>
@@ -436,8 +438,8 @@
                 <label>
                     Insertar datos (csv): 
                     <input type="file" name="archivoCSV" required>
-                    <input type="submit" name="InsertarDatos" value="Insertar datos">
                 </label>
+                <input type="submit" name="InsertarDatos" value="Insertar datos">
             </form>
             <form action="#" method="POST">
                 <input type="submit" name="ExportarDatos" value="Exportar datos">
@@ -469,9 +471,7 @@
                 </ol>
             </form>
         </section>
-        <section>
-            <?php $datos->getDatosPiloto()?>
-        </section>
+        <?php $datos->getDatosPiloto()?>
     </main>
     <footer>
 

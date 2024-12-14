@@ -34,15 +34,17 @@
                 $retTableInfo = $this->conn->query("SELECT * FROM registro WHERE nivel = ".$this->currentDifficultyLevel." ORDER BY tiempo ASC LIMIT 10");
                 if ($retTableInfo->num_rows > 0) {
 
-                    echo "<h3>Mejores Resultados en el Juego del Semáforo Nivel: ".$this->currentDifficultyLevel."</h3>";
-                    echo "<ul><li>Nombre\tApellidos\tTiempo</li></ul>";
+                    $section = "<section>";
+                    $section .= "<h3>Mejores Resultados en el Juego del Semáforo Nivel: ".$this->currentDifficultyLevel."</h3>";
+                    $section .= "<ul><li>Nombre\tApellidos\tTiempo (s)</li></ul>";
                     $html_ol = "<ol>";
                     while ($row = $retTableInfo->fetch_assoc()) {
                         $html_row = "<li>".$row["nombre"]."\t".$row["apellidos"]."\t".($row["tiempo"]/1000)."</li>";
                         $html_ol .= $html_row;
                     }
                     $html_ol .= "</ol>";
-                    echo $html_ol;
+                    $section .= $html_ol . "</section>";
+                    echo $section;
                 }
             }
             
@@ -87,25 +89,19 @@
     <p><a href="./index.html" title="Inicio">Inicio</a> >> <a href="./juegos.html" title="Juegos">Juegos</a> >> Juego del Semáforo</p>
 
     <aside>
-    <h2>Menú de Juegos</h2>
-        <nav>
-            <a href="./memoria.html" title="Accede al Juego de Memoria">Juego de Memoria</a>
-            <a href="api.html" title="Accede a la Aplicación con APIs">Aplicación con APIs</a>
-            <a href="datos.php" title="Accede a la Aplicación Base de Datos">Aplicación Base de Datos</a>
-        </nav>
+        <h2>Menú de Juegos</h2>
+        <ul>
+            <li><a href="memoria.html" title="Accede al Juego de Memoria">Juego de Memoria</a></li>
+            <li><a href="api.html" title="Accede a la Aplicación con APIs">Aplicación con APIs</a></li>
+            <li><a href="datos.php" title="Accede a la Aplicación Base de Datos">Aplicación Base de Datos</a></li>
+        </ul>
     </aside>
     <main>
         <script>
                 const semaforo = new Semaforo()
         </script>
-        <article></article>
-        <aside></aside>
     </main>
-    <section>
-        
-        <?php $record->getData() ?>
-        
-   </section>
+    <?php $record->getData() ?>
     <footer>
 
     </footer>

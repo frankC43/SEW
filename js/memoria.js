@@ -47,7 +47,6 @@ class Memoria {
         this.shuffleElements()
         this.createElements()
         this.addEventListeners()
-        this.getTutorial()
    }
 
    shuffleElements(){
@@ -177,11 +176,13 @@ class Memoria {
    }
 
    getTutorial(){
-        let areInsructions = document.querySelector("main aside article")
-        if (areInsructions != undefined){
-            areInsructions.style.display = areInsructions.style.display === "none" ? "flex" : "none";
+        let areInsructions = document.querySelector("main aside article")//.querySelectorAll("artic")
+        if (areInsructions != null){
+            //areInsructions.style.display = areInsructions.style.display === "none" ? "flex" : "none";
+            areInsructions.remove()
             let btn = document.querySelector("main aside button")
-            btn.textContent = areInsructions.style.display === "none" ? "Ver más instrucciones" : "Ocultar instrucciones"
+            //btn.textContent = areInsructions.style.display === "none" ? "Ver más instrucciones" : "Ocultar instrucciones"
+            btn.textContent = "Ver más instrucciones"
         } else {
             let instArticle = document.createElement("article")
             let inst = document.createElement("h2")
@@ -215,7 +216,7 @@ class Memoria {
 
             let pli1 = document.createElement("p")
             pli1.textContent = "Si las cartas son iguales estas se quedarán dadas la vuelta mostrando la imagen previamente oculta"
-            ol.append(pli1)
+            li1.append(pli1)
 
             let li2 = document.createElement("li")
             li2.textContent = "Las cartas NO son iguales"
@@ -223,7 +224,7 @@ class Memoria {
 
             let pli2 = document.createElement("p")
             pli2.textContent = "Si NO son iguales, las cartas volverán a darse la vuelta despues de unos segundos, ocultando de nuevo su imagen. Repite de nuevo el intento."
-            ol.append(pli2)
+            li2.append(pli2)
             instArticle.append(ol)
 
             let hasGanado = document.createElement("h4")
@@ -235,6 +236,9 @@ class Memoria {
             instArticle.append(p3)
             
             document.querySelector("main aside").append(instArticle)
+
+            let btn = document.querySelector("main aside button")
+            btn.textContent = "Ocultar instrucciones"
         }
    }
 

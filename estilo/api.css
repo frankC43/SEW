@@ -1,32 +1,36 @@
+/*especificidad 001*/
 main {
     justify-content: center;
     display: flex;
     flex-direction: column;
 }
+/*especificidad 002*/
 main section {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
+/*especificidad 003*/
 main section article {
     width: 50%;
 }
-
+/*especificidad 003*/
 main section img {
     width: 35%;
 }
-
+/*especificidad 002*/
 main button {
     font-size: 2em;
     align-self: center;
 }
+/*especificidad 002*/
 main label {
     font-size: 1.5em;
     align-content: center;
     align-self: center;
 }
+/*especificidad 002*/
 section canvas {
     width: 50%;
     height: auto;
@@ -37,29 +41,33 @@ section canvas {
     justify-self: center;
     border: 2px solid #36ABAB;
     background-color: #36ABAB;
+    /*color de primer plano heredado de body, estilo.css */
 }
-
+/*especificidad 002*/
 canvas > * {
     background-color: #36ABAB;
+    /*color de primer plano heredado de body, estilo.css */
 }
-
-aside > h4,aside > p {
+/*especificidad 002*/
+aside > h4,
+/*especificidad 002*/
+aside > p {
     margin: 0 5%;
 }
+/*especificidad 002*/
 main aside {
     width: 80%;
     margin: 0 8%;
-    padding: 0;
-    padding-left: 3%;
-    padding-right: 3%;
+    padding: 0 3%;
     background-color: #fff;
     border: 0.3vh solid #36ABAB;
+    /*color de primer plano heredado de body, estilo.css */
 }
-
+/*especificidad 002*/
 aside p {
     line-height: normal;
 }
-
+/*especificidad 002*/
 main label {
     margin: 2%;
 }

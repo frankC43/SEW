@@ -1,9 +1,8 @@
-  
-main section {
+/*especificidad 001*/  
+main {
     width: 90%;
     height: 30%;
     margin: auto;
-    
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr 1fr 1fr;
@@ -11,67 +10,69 @@ main section {
     align-items: center;
 
 }
-  
+/*especificidad 001*/
 h2 {
       grid-column: 1 / -1;
       text-align: center;
 }
-
+/*especificidad 001*/
 button {
-    font-size: 2em;
+    font-size: 3vw;
 }
-  
-section div {
-    background-color: #000A;
-    border: 5px solid black;
+/*especificidad 002*/
+main div {
+    background-color: #000A; /*color heredado de body, estilo.css*/
+    border: 5px solid black; 
     aspect-ratio: 1;
     border-radius: 50%;
     width: auto;
     height: auto;
 }
-  
- button:first-of-type {
-      grid-column: 2 / span 1;
-  }
-  
- button:nth-of-type(2) {
-      grid-column: 3 / span 1;
-  }
+/*especificidad 011*/
+button:first-of-type {
+    grid-column: 2 / span 1;
+}
+/*especificidad 011*/
+button:nth-of-type(2) {
+    grid-column: 3 / span 1;
+}
 
 @keyframes arranque {
-    from {background-color: #000A;}
-    to {background-color:  red;}
+    /*redefinición del color de fondo para el semáforo cuando arranca*/
+    from {background-color: #000A;}/*color heredado de body, estilo.css*/
+    to {background-color:  red;}/*color heredado de body, estilo.css*/
 }
 
 @keyframes out {
-    from {background-color:  red;}
-    to {background-color: #000A;}
+    /*redefinición del color de fondo para el semáforo cuando termina*/
+    from {background-color:  red;}/*color heredado de body, estilo.css*/
+    to {background-color: #000A;}/*color heredado de body, estilo.css*/
 }
-
-section div.load {
+/*especificidad 012*/
+main div.load {
     animation-name: arranque;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
 }
-
-section div.load:nth-of-type(2) {
+/*especificidad 022*/
+main div.load:nth-of-type(2) {
     animation-delay: 0.5s;
 }
-
-section div.load:nth-of-type(3) {
+/*especificidad 022*/
+main div.load:nth-of-type(3) {
     animation-delay: 1s;
 }
-
-section div.load:nth-of-type(4) {
+/*especificidad 022*/
+main div.load:nth-of-type(4) {
     animation-delay: 1.5s;
 }
-
-section div.unload {
+/*especificidad 012*/
+main div.unload {
     animation-name: out;
     animation-duration: 0.1s;
     animation-fill-mode: backwards;
 }
-
+/*especificidad 002*/
 main article {
     display: flex;
     flex-direction: column;
@@ -79,23 +80,25 @@ main article {
     width: 100%;
     height: auto;
     padding: 0;
+    grid-column: 4/-4;
 }
-
-main article p {
+/*especificidad 003*/
+main article h3 {
     font-size: 3.5em;
     align-self: center;
 }
-
+/*especificidad 002*/
 aside nav {
     margin-left: 1.5%;
 }
-
+/*especificidad 002*/
 main aside {
     display: flex;
     flex-direction: column;
     align-items: center;
+    grid-column:  5/ -5;
 }
-
+/*especificidad 002*/
 main form {
     display: inline-flex;
     flex-direction: column;
@@ -105,29 +108,33 @@ main form {
 }
 
 @media (max-width: 768px) {
-    main article p {
+    /*especificidad 003*/
+    main article h3 {
+        /*redefinición del tamaño de fuente para la versión móvil*/
         font-size: 2.5em; 
         text-align: center;
         display: flex;
         flex-direction: column;
         padding-top: 15%;
     }
+    /*especificidad 002*/
     main article {
-        padding: 0;
-        height: auto; 
+        padding: 0; /*redefinición del padding para el móvil*/
+        height: auto; /*redefinición de la altura del article para el móvil*/
     }
-
-    main section {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 1fr 1fr 1fr;
+    /*especificidad 001*/
+    main {
+        grid-template-columns: repeat(4, 25vw); /*redefinición de la anchura de las celdas del gird para el móvil*/
         justify-items: center;
-        margin: 0;
-        gap: 10% 0;
-        width: 100%;
+        align-self: center;
+        margin: 0; /*redefinición de los margenes para el móvil*/
+        padding: 0; /*redefinición del padding para el móvil*/
+        gap: 0 0; /*redefinición del gap para el móvil*/
+        width: 100%; /*redefinición del ancho del gird para el móvil*/
     }
-    section div {
-        width: 10vw;
+    /*especificidad 002*/
+    main div {
+        width: 10vw; /*redefinición del ancho de cada div para el móvil*/
     }
     
 }

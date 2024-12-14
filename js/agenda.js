@@ -23,7 +23,7 @@ class Agenda {
                                 .attr("alt","Icono de agenda")
                                 
                     article.append(img)
-                    article.append("<p>Nombre de la Carrera: "+raceName+"</p>")
+                    article.append("<h4>Nombre de la Carrera: "+raceName+"</h4>")
                     article.append("<p>Nombre del circuito: "+circuit+"</p>")
                     article.append("<p>Latitud: "+lat+"</p>")
                     article.append("<p>Longuitud: "+lon+"</p>")

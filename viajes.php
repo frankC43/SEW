@@ -26,7 +26,7 @@
                 $this->fotos = array();
                 for ($i = 0; $i < count($response_obj["photos"]["photo"]); $i++) {
                     $imgSrc = $response_obj["photos"]["photo"][$i];
-                    $this->fotos[] = "https://farm".$imgSrc["farm"].".staticflickr.com/".$imgSrc["server"]."/".$imgSrc["id"]."_".$imgSrc["secret"]."_b.png";
+                    $this->fotos[] = "https://farm".$imgSrc["farm"].".staticflickr.com/".$imgSrc["server"]."/".$imgSrc["id"]."_".$imgSrc["secret"]."_w.png";
                 }
             } else {
                 exit("<h2>ERROR al llamar a flickr</h2>");
@@ -48,13 +48,9 @@
         
         function __construct($moneyCodeLocal, $moneyCodeThere) {
             $this->params = array(
-                "access_key"=>"52dcd28e8296d4139a4ac0b8d9638636",
+                "access_key"=>"b4dde78cf854b4f23622f29d4e0b2305",
                 "base"=>"EUR",
                 "symbols" => "BHD"
-                /*"from"=>"EUR",
-                "to"=>"BHD",
-                "amount"=>"1"*/
-
             );
             $encoded_params = array();
             foreach( $this->params as $k => $v ) {
@@ -130,11 +126,9 @@
 
         <aside>
             <h3>Carrusel de imágenes</h3>
-            <article>
-                <figure>
-                    <?php $carrusel->getImages();?>
-                </figure>
-            </article>
+            <figure>
+                <?php $carrusel->getImages();?>
+            </figure>
             <button> &gt; </button>
             <button> &lt; </button>
         </aside>

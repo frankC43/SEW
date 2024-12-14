@@ -260,7 +260,6 @@ class Puzzle {
     }
 
     getMouseCoords(x,y){
-        console.log('x:'+x+' y:'+y)
         const rowOffset = this.canvas.getBoundingClientRect().x
         const colOffset = this.canvas.getBoundingClientRect().y
         const pieceW = rowOffset+this.puzzleBoard.width

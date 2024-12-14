@@ -84,7 +84,7 @@ class Pais {
 
                             let dia = day+"/"+month+"/"+year
                             let hourFormat = hours+":"+minutes
-                            article.append("<p>Día : "+dia+"</p>")
+                            article.append("<h4>Día : "+dia+"</h4>")
 
                             article.append("<p>Hora: "+hourFormat+"</p>");
 

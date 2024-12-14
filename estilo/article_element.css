@@ -1,8 +1,14 @@
 /*especificidad 002*/
 main section {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /*align-items: stretch;*/
+}
+/*especificidad 003*/
+main section h3 {
+    grid-column: 1 / -1;
+    align-self: center;
+    text-align: center;
 }
 /*especificidad 003*/
 main section article {
@@ -10,12 +16,12 @@ main section article {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 14%;
     padding: 2%;
     margin: 0.5%;
     border: 0.2vw solid #1D5D5D;
     border-radius: 8px;
     background-color: #fff; 
+    /*color de primer plano heredado de body, estilo.css */
     text-align: center;
 }
 /*especificidad 004*/
@@ -28,13 +34,18 @@ main section article p {
     margin: 1%;
     font-size: 1em;
     color: #050505; 
+    /*color de fondo heredado de article  */
 }
 
 @media screen and (max-width: 799px){
+    /*especificidad 002*/
     main section {
+        /*display redefinido para la versión móvil*/
+        display: flex;
         flex-direction: column;
         align-items: center;
     }
+    /*especificidad 003*/
     main section article {
         width: 80%;
     }
