@@ -59,6 +59,10 @@ p > a{
     /*color de fondo heredado del body*/
 }
 
+section p a {
+    color:#003BEB
+}
+
 /*especificidad 001*/
 footer {
     background-color: #1C4345;
@@ -75,10 +79,6 @@ footer a {
 nav a:hover, 
 ul a:hover{
    font-size: 1.8em;
-}
-
-main a:link {
-    color: #1D5D5D    /*color de fondo heredado del body*/
 }
 
 /*especificidad 003*/
