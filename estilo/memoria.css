@@ -120,7 +120,7 @@ section article[data-element='McLaren'][data-state] img{
 }
 /*especificidad 023*/
 section article[data-element='RedBull'][data-state] img {
-    background: #f5ff63; /*color de primer plano heredado de body, estilo.css*/
+    background: #add8e6; /*color de primer plano heredado de body, estilo.css*/
 }
 /*especificidad 023*/
 section article[data-element='AstonMartin'][data-state] img {
@@ -128,11 +128,11 @@ section article[data-element='AstonMartin'][data-state] img {
 }
 /*especificidad 023*/
 section article[data-element='Mercedes'][data-state] img {
-    background: #b4bfe7; /*color de primer plano heredado de body, estilo.css*/
+    background: #f5f5dc; /*color de primer plano heredado de body, estilo.css*/
 }
 /*especificidad 023*/
 section article[data-element='Ferrari'][data-state] img {
-    background: #c6f0be; /*color de primer plano heredado de body, estilo.css*/
+    background: #e51837; /*color de primer plano heredado de body, estilo.css*/
 }
 
 
