@@ -1,23 +1,22 @@
 <!DOCTYPE HTML>
-
-<html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="author" content="UO294768-Francisco Cimadevilla"/>
-    <meta name="description" content="Juego de memoria de la web F1 Desktop relacionado con los juegos de F1"/>
-    <meta name="keywords" content="Formula 1 Juegos, F1 Juegos, Memoria, Cartas"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-    <title>F1 Desktop - Juego de Semáforo</title>
+<html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="author" content="UO294768-Francisco Cimadevilla">
+    <meta name="description" content="Juego de memoria de la web F1 Desktop relacionado con los juegos de F1">
+    <meta name="keywords" content="Formula 1 Juegos, F1 Juegos, Memoria, Cartas">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>F1 Desktop - Juego del Semáforo</title>
     <link href="multimedia/imagenes/favicon-lance-stroll.jfif" rel="icon">
-    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
-    <link rel="stylesheet" type="text/css" href="estilo/layout.css"/>
-    <link rel="stylesheet" type="text/css" href="estilo/semaforo.css"/>
-    <script src="./js/semaforo.js"></script>
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css">
+    <link rel="stylesheet" type="text/css" href="estilo/semaforo.css">
+    <script src="js/semaforo.js"></script>
+    
 </head>
 
 <body>
     <header>
-        <h1><a href="index.html" title="Inicio">F1 Desktop</a></h1>
+        <h1><a href="./index.html" title="Inicio">F1 Desktop</a></h1>
         <nav>
             <a href="index.html" title="Página principal">Inicio</a>
             <a href="piloto.html" title="Información de pilotos">Piloto</a>
@@ -30,23 +29,23 @@
         </nav>
     </header>
 
-    <p><a href="index.html" title="Inicio">Inicio</a> >> <a href="juegos.html" title="Juegos">Juegos</a> >> Memoria</p>
+    <p><a href="./index.html" title="Inicio">Inicio</a> &gt;&gt; <a href="./juegos.html" title="Juegos">Juegos</a> &gt;&gt; Juego del Semáforo</p>
 
     <aside>
-    <h2>Juegos</h2>
-        <nav>
-            <a href="memoria.html" title="Accede al Juego de Memoria">Juego de Memoria</a>
-            <a href="semaforo.php" title="Accede al Juego del Semaforo">Juego del Semaforo</a>
-        </nav>
+        <h2>Menú de Juegos</h2>
+        <ul>
+            <li><a href="memoria.html" title="Accede al Juego de Memoria">Juego de Memoria</a></li>
+            <li><a href="api.html" title="Accede a la Aplicación con APIs">Aplicación con APIs</a></li>
+            <li><a href="datos.php" title="Accede a la Aplicación Base de Datos">Aplicación Base de Datos</a></li>
+        </ul>
     </aside>
     <main>
         <script>
                 const semaforo = new Semaforo()
-        </script>
-        <article></article>
-    </main>
-    <footer>
+        </script><h2>Juego del Semáforo</h2><div class="unload"></div><div class="unload"></div><div class="unload"></div><div class="unload"></div><button>Arranque</button><button disabled="">Reacción</button>
+    <article><h3>273ms</h3></article><aside><h3>Formularios para Guardar Resultados</h3><form action="#" method="POST"><label>Nombre: <input type="text" name="nombre"></label><label>Apellidos: <input type="text" name="apellidos"></label><label>Dificultad Jugada: <input type="text" name="nivel" readonly=""></label><label>Tiempo de Reacción (ms): <input type="text" name="tiempo" readonly=""></label><input type="submit" value="Guardar datos"></form></aside></main>
+    <section><h3>Mejores Resultados en el Juego del Semáforo Nivel: 0.5</h3><ul><li>Nombre	Apellidos	Tiempo (s)</li></ul><ol><li>test	test	0.055</li><li>test	test	0.055</li><li>fran	uo	0.218</li><li>FRAN	CIMADEVILLA	0.324</li><li>test2	test	0.353</li><li>test2	2	0.839</li></ol></section>    <footer>
 
     </footer>
-</body>
-</html>
+
+</body></html>

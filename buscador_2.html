@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="author" content="UO294768-Francisco Cimadevilla">
+    <meta name="description" content="Aplicación que simula una base de datos privada de la F1 para consultas sobre un piloto">
+    <meta name="keywords" content="Formula 1 Piloto, F1 Piloto, Escuderias F1, Vehiculos F1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>F1 Desktop - Base de datos privada</title>
+    <link href="multimedia/imagenes/favicon-lance-stroll.jfif" rel="icon">
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css">
+    <link rel="stylesheet" type="text/css" href="estilo/datos.css">
+    
+</head>
+
+<body>
+    <header>
+        <h1><a href="./index.html" title="Inicio">F1 Desktop</a></h1>
+        <nav>
+            <a href="index.html" title="Página principal">Inicio</a>
+            <a href="piloto.html" title="Información de pilotos">Piloto</a>
+            <a href="noticias.html" title="Últimas noticias">Noticias</a>
+            <a href="calendario.html" title="Ver el calendario">Calendario</a>
+            <a href="meteorologia.html" title="Condiciones del clima">Meteorología</a>
+            <a href="juegos.html" title="Acceder a juegos">Juegos</a>
+            <a href="circuito.html" title="Detalles del circuito">Circuito</a>
+            <a href="viajes.php" title="Sección de viajes">Viajes</a>
+        </nav>
+    </header>
+
+    <p><a href="./index.html" title="Inicio">Inicio</a> &gt;&gt; <a href="./juegos.html" title="Juegos">Juegos</a> &gt;&gt; Aplicación Base de Datos</p>
+
+    <aside>
+        <h2>Menú de Juegos</h2>
+        <ul>
+            <li><a href="./memoria.html" title="Juego de Memoria">Juego de Memoria</a></li>
+            <li><a href="./semaforo.php" title="Juego del Semaforo">Juego del Semáforo</a></li>
+            <li><a href="./api.html" title="Aplicación con APIs">Aplicación con APIs</a></li>
+        </ul>
+    </aside>
+    <main>
+        <h2>Base de Datos Privada F1</h2>
+        <p>Consulta toda la información que hayas guardado sobre los pilotos de la Fórmula 1.</p>
+        <section>
+            <h3>Operaciones en la base de datos...</h3>
+            <form action="#" method="POST">
+                <input type="submit" name="CargarDatos" value="Cargar tablas y datos">
+            </form>
+            <form action="#" method="POST" enctype="multipart/form-data">
+                <label>
+                    Insertar datos (csv): 
+                    <input type="file" name="archivoCSV" required="">
+                </label>
+                <input type="submit" name="InsertarDatos" value="Insertar datos">
+            </form>
+            <form action="#" method="POST">
+                <input type="submit" name="ExportarDatos" value="Exportar datos">
+            </form>
+        </section>
+        <section>
+            <h3>Buscar por datos históricos del piloto...</h3>
+            <form action="#" method="GET">
+                <label>
+                    Nombre: <input type="text" name="nombre" value="cualquiera..."> 
+                </label>
+                <label>
+                    Apellido: <input type="text" name="apellido" value="cualquiera...">
+                </label>
+                <label>
+                    Edad Máxima: <input type="number" name="edad" value="100">
+                </label>
+                <label>
+                    Escudería: <input type="text" name="escuderia" value="cualquiera...">
+                </label>
+                <label>
+                    País: <input type="text" name="pais" value="cualquiera...">
+                </label>
+                <input type="submit" name="Buscar" value="Buscar">
+            </form>
+            <form action="#" method="GET">
+                <ol>
+                                    </ol>
+            </form>
+        </section>
+        <section><h4>Piloto:</h4><article><h3>Fernando Alonso</h3><ul><li>Año nacimiento: 1981-07-29</li><li>Edad actual: 43</li><li>País de Origen:  España</li></ul></article><article><h3> Temporada de 2024</h3><ul><li>Escudería:  Aston Martin </li><li>Vehículo:  AMR24 </li></ul></article><article><h3> Temporada de  2022</h3><ul><li>Escudería:  Alpine F1 Team </li><li>Vehículo:  A522 </li></ul></article><article><h3> Temporada de  2017</h3><ul><li>Escudería:  McLaren </li><li>Vehículo:  MCL32 </li></ul></article><article><h3> Temporada de  2014</h3><ul><li>Escudería:  Ferrari </li><li>Vehículo:  F14 </li></ul></article></section>    </main>
+    <footer>
+
+    </footer>
+
+</body></html>
