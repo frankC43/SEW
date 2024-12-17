@@ -38,16 +38,15 @@ section article {
     box-shadow: 1px 1px 1px rgba(0,0,0,.3);
 }
 /*especificidad 012*/
-section article[data-state=flip] {
-    transform: rotateY(180deg);
-}
-/*especificidad 011*/
+section article[data-state=flip],
+/*especificidad 012*/
 section article[data-state=revealed] {
     transform: rotateY(180deg);
 }
 /*especificidad 013*/
 section article[data-state] img{
     border: 0.15vh solid #36ABAB;
+    cursor: not-allowed;
 }
 
 /*especificidad 002*/
@@ -136,7 +135,7 @@ section article[data-element='Ferrari'][data-state] img {
 }
 
 
-@media screen and (max-width: 850px){ 
+@media screen and (max-width: 800px){ 
     /*especificidad 002*/
     body main {
         display: inline; /*redefinición del display para dispositivos con ancho de pantalla máximo de 850px*/
@@ -159,4 +158,22 @@ section article[data-element='Ferrari'][data-state] img {
     body {
         display: block;
     }
+
+    /*especificidad 002*/
+    main > h3 {
+        margin: 0; /*redefinición del margin*/
+    }
+    /*especificidad 003*/
+    main section h3 {
+        margin: 1.5% 0; /*redefinición del margin*/
+    }
 }
+
+@media screen and (max-width: 1100px) {
+    /*especificidad 002*/
+    body main {
+        width: 80vw; /*redefinición del ancho para la versión de tablet*/
+        margin-left: 8vw; /*redefinición del margen izquierdo para la versión de tablet*/
+        margin-right: 10vw; /*redefinición del margen derecho para la versión de tablet*/
+    }
+} 

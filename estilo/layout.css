@@ -66,7 +66,7 @@ main section ul {
     unicode-bidi: isolate;
     list-style-type: square;
 }
-
+/*especificidad 003*/
 main section li {
     display: list-item;
     margin: inherit;
@@ -158,6 +158,12 @@ ul li {
     margin: 3%;
     text-align: center;
 }
+/*especificidad 003*/
+footer ul li {
+    display: list-item;
+    margin: inherit;
+    text-align: initial;
+}
 
 /*especificidad 003*/
 main ul a,
@@ -208,6 +214,10 @@ svg {
     margin: 0 auto;
     width: 100%;
     height: auto;
+}
+/*especificidad 035*/
+body > main > section:nth-child(2) > img:nth-child(2) {
+    width: 80%;
 }
 
 /*especificidad 011*/

@@ -58,9 +58,10 @@ p > a{
     color: #fff;
     /*color de fondo heredado del body*/
 }
-
+/*especificidad 003*/
 section p a {
-    color:#003BEB
+    color:#003BEB; /*color de fondo heredado del body*/
+    text-decoration-line: underline;
 }
 
 /*especificidad 001*/

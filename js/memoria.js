@@ -103,6 +103,9 @@ class Memoria {
                 let aside = document.querySelector("body main aside")
                 let section = document.querySelector("body main section")
                 aside.parentNode.insertBefore(msg, section)
+                let moveAudio = new Audio()
+                moveAudio.src = "./multimedia/audios/win_sound_effect.mp3"
+                moveAudio.play()
             } else {
                 if (memoria.isFinished){
                     msg.hidden = true
@@ -128,7 +131,6 @@ class Memoria {
         this.elements.forEach((item) => {
             let card = document.createElement("article")
             card.setAttribute("data-element", item.element)
-            card.setAttribute("data-state","hide")
 
             let title = document.createElement("h3")
             title.textContent = "Tarjeta de Memoria"

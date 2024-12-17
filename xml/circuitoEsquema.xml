@@ -17,7 +17,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.uniovi.e
     <fotos>
         <foto img="./xml/BahrainNight.jpg" alt="Foto Bahreín de noche">Bahreín</foto>
         <foto img="./xml/sakhir.png" alt="Mapa Bahreín">Mapa simple Bahreín</foto>
-        <foto img="./xml/fotobahrain.jpg" alt="Curva Bahreín">Curva Bahreín</foto>
+        <foto img="./xml/fotoBahrain.jpg" alt="Curva Bahreín">Curva Bahreín</foto>
     </fotos>
     <videos>
         <video src="./xml/fastlap_bahrein.mp4">Fast Lap Pedro de la Rosa (2005) Bahreín</video>
