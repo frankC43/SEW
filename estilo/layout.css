@@ -215,10 +215,18 @@ svg {
     width: 100%;
     height: auto;
 }
-/*especificidad 035*/
-body > main > section:nth-child(2) > img:nth-child(2) {
-    width: 80%;
+
+/*especificidad 001*/
+section{
+    display: contents;
 }
+
+/*especificidad 035*/
+body > main > section:nth-child(2) > img:nth-child(3) {
+    width: 70%;
+    align-self: center;
+}
+
 
 /*especificidad 011*/
 aside:nth-child(4) {
@@ -312,7 +320,14 @@ main aside:nth-child(4) button:active{
     /*especificidad 002*/
     aside nav {
         justify-content: center;  /*redefinición de la justificación del contenido del nav para la versión móvil*/
-    }
+    }   
+}
 
-    
+@media screen and (max-width: 300px) { 
+    /*especificidad 002*/
+    header nav {
+        display: flex;  /*redefinición del display del nav para la versión de pantallas con muy poco ancho*/
+        flex-direction: column;
+        padding: 0; /*redefinición del padding*/
+    }
 }

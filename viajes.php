@@ -89,11 +89,6 @@
     <script async defer src=
     "https://maps.googleapis.com/maps/api/js?key=AIzaSyCG2TuPk4XC9L5T6hnCm2afquBx4De-too&loading=async">
     </script>
-    <script 
-        src="https://code.jquery.com/jquery-3.7.1.min.js" 
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-        crossorigin="anonymous">
-    </script>
     <script src="js/viajes.js"></script>
 </head>
 
@@ -118,10 +113,12 @@
         <h2>Viajes</h2>
         <section>
             <h3>Mapa Estático</h3>
+            <button onclick="viajes.getStaticMap()">Ver Mapa Estático</button>
         </section>
 
         <section>
             <h3>Mapa Dinámico</h3>
+            <button onclick="viajes.esperarPorGoogle(() =>  viajes.initDynamicMap() )">Ver Mapa Dinámico</button>
         </section>
 
         <aside>
@@ -129,9 +126,12 @@
             <figure>
                 <?php $carrusel->getImages();?>
             </figure>
-            <button> &gt; </button>
-            <button> &lt; </button>
+            <button aria-label="Mover la imagen del carrusel a la derecha"> &gt; </button>
+            <button aria-label="Mover la imagen del carrusel a la izquierda"> &lt; </button>
         </aside>
+        <script 
+            src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+        </script>
         <script>viajes.createCarrusel()</script>
         <section>
             <h3>Cambio de moneda</h3>

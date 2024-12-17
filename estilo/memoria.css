@@ -45,7 +45,7 @@ section article[data-state=revealed] {
 }
 /*especificidad 013*/
 section article[data-state] img{
-    border: 0.15vh solid #36ABAB;
+    background: #fff; /*color de primer plano heredado de body, estilo.css*/
     cursor: not-allowed;
 }
 
@@ -111,27 +111,27 @@ main > h3 {
 */
 /*especificidad 023*/
 section article[data-element='Alpine'][data-state] img{
-    background: #00EEFF; /*color de primer plano heredado de body, estilo.css*/
+    border: 0.45vw solid #8F008A; 
 }
 /*especificidad 023*/
 section article[data-element='McLaren'][data-state] img{
-    background: #fa9b43; /*color de primer plano heredado de body, estilo.css*/
+    border: 0.45vw solid #874303; 
 }
 /*especificidad 023*/
 section article[data-element='RedBull'][data-state] img {
-    background: #add8e6; /*color de primer plano heredado de body, estilo.css*/
+    border: 0.45vw solid #1342CD; 
 }
 /*especificidad 023*/
 section article[data-element='AstonMartin'][data-state] img {
-    background: #fff; /*color de primer plano heredado de body, estilo.css*/
+    border: 0.45vw solid #1d5d5d; 
 }
 /*especificidad 023*/
 section article[data-element='Mercedes'][data-state] img {
-    background: #f5f5dc; /*color de primer plano heredado de body, estilo.css*/
+    border: 0.45vw solid #575752; 
 }
 /*especificidad 023*/
 section article[data-element='Ferrari'][data-state] img {
-    background: #e51837; /*color de primer plano heredado de body, estilo.css*/
+    border: 0.45vw solid #AF122A; 
 }
 
 
@@ -161,11 +161,11 @@ section article[data-element='Ferrari'][data-state] img {
 
     /*especificidad 002*/
     main > h3 {
-        margin: 0; /*redefinición del margin*/
+        margin: 0; 
     }
     /*especificidad 003*/
     main section h3 {
-        margin: 1.5% 0; /*redefinición del margin*/
+        margin: 1.5% 0; 
     }
 }
 

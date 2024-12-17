@@ -30,9 +30,6 @@ class Viajes {
         this.velocidad        = posicion.coords.speed; 
         this.coords = posicion.coords
         this.errorGeoLocal = false    
-
-        this.getStaticMap()  
-        this.esperarPorGoogle(() =>  this.initDynamicMap() )
     }
     verErrores(error){
         switch(error.code) {
@@ -56,6 +53,8 @@ class Viajes {
     }
 
     getStaticMap() {
+        let btn = document.querySelector("body main section:nth-child(2) button")
+        btn.disabled = true
         let container = document.querySelector("body main section");
         if (! this.errorGeoLocal){
             if (this.imgMap == null){
@@ -94,6 +93,8 @@ class Viajes {
     }
 
     initDynamicMap(){
+        let btn = document.querySelector("body main section:nth-child(3) button")
+        btn.disabled = true
         let centerPos = {lat: this.coords.latitude, lng: this.coords.longitude}
         let div = document.createElement("div")
 
