@@ -14,16 +14,31 @@
             $this->dbname = 'datosf1';
         }
 
+        /**
+         * 
+         */
         private function getConn(){
-            $this->conn = new mysqli(hostname: $this->server, username: $this->user, password: $this->pass, database: $this->dbname);
-           
-            if ($this->conn->connect_error){
-                exit("<h2>ERROR conexión: ".$this->conn->connect_error."</h2>");
+            try {
+                $this->conn = new mysqli(hostname: $this->server, username: $this->user, password: $this->pass);
+                return true;
+            } catch (Exception $e) { 
+                //if ($this->conn->connect_error){
+                //    exit("<h2>ERROR en la conexión a la base de datos</h2>");
+                //}
+                return false;
             }
+            
         }
 
         private function closeConn() {
-            $this->conn->close();
+            if ($this->conn) {
+                $this->conn->close();
+            }
+        }
+
+        private function isDataBase() {
+            $resultado = $this->conn->query("SHOW DATABASES LIKE '".$this->dbname."'");
+            return $resultado->num_rows == 1;
         }
 
         public function evaluateDbAction() {
@@ -41,24 +56,21 @@
         }
 
         public function cargarDatos(){
-            $this->getConn();
-            $this->eliminarTablas();
-            $this->crearTablas();
-            $this->insertarCSV("./php/fichero.csv");   
-            $this->closeConn();
+            if ($this->getConn()) {
+                $this->eliminarDatos();
+                $this->crearDatos();
+                $this->insertarCSV("./php/fichero.csv");   
+                $this->closeConn();
+            }
         }
 
-        public function eliminarTablas(){
+        public function eliminarDatos(){
             $this->conn->autocommit(false);
             $this->conn->begin_transaction();
             try {
-                $this->conn->query("DROP TABLE IF EXISTS  piloto_temporada ");
-                $this->conn->query("DROP TABLE IF EXISTS vehiculo");
+                $this->conn->query("DROP TABLE IF EXISTS  datosf1.piloto_temporada, datosf1.vehiculo, datosf1.piloto, datosf1.escuderia, datosf1.pais, datosf1.temporada");
+                $this->conn->query("DROP DATABASE IF EXISTS datosf1");
 
-                $this->conn->query("DROP TABLE IF EXISTS piloto");
-                $this->conn->query("DROP TABLE IF EXISTS escuderia");
-                $this->conn->query("DROP TABLE IF EXISTS pais");
-                $this->conn->query("DROP TABLE IF EXISTS temporada");
                 $this->conn->commit();
             } catch (Exception $e) {
                 $this->conn->rollback();
@@ -66,9 +78,8 @@
             }
         }
 
-        public function crearTablas(){
+        public function crearDatos(){
             $this->conn->autocommit(false);
-            
             try {
                 $try_open = file_get_contents("./php/fichero.sql");
                 if ($try_open !== false) {
@@ -87,7 +98,7 @@
             }
             catch (Exception $e) {
                 $this->conn->rollback();
-                exit("Error: Tratando de crear las tablas en la base de datos. ErrorMessage=".$e->getMessage());
+                exit("Error: Tratando de crear las tablas en la base de datos.");
             }
         }
 
@@ -96,83 +107,88 @@
                 $file_temp_path = $_FILES["archivoCSV"]["tmp_name"];
                 $file_type = $_FILES["archivoCSV"]["type"];
                 if ($file_type === "text/csv") {
-                    $this->getConn();
-                    $this->insertarCSV($file_temp_path);
-                    $this->closeConn();
+                    if ($this->getConn()) {
+                        $this->insertarCSV($file_temp_path);
+                        $this->closeConn();
+                    }
                 }
             }
         }
 
         public function exportarDatos(){
-            $this->getConn();
-            $query = $this->conn->query("SELECT id, nombre_pais FROM pais");
-            $registroPais = [];
-            while ($row = $query->fetch_assoc()) {
-                $registroPais[] = implode("; ", ["pais", $row["id"], $row["nombre_pais"]]);
-            }
-
-            $query = $this->conn->query("SELECT id, año FROM temporada");
-            $registroTemporada = [];
-            while ($row = $query->fetch_assoc()) {
-                $registroTemporada[] = implode("; ", ["temporada", $row["id"], $row["año"]]);
-            }
-
-            $query = $this->conn->query("SELECT id, nombre, apellido, nacimiento, id_pais FROM piloto");
-            $registroPilotos = array();
-            while ( $row = $query->fetch_assoc() ) {
-                $registroPilotos[] = implode("; ", [
-                    "piloto",
-                    $row["id"],
-                    $row["nombre"],
-                    $row["apellido"],
-                    $row["nacimiento"],
-                    $row["id_pais"]
-                ]);
-            }
-
-            $query = $this->conn->query("SELECT id, nombre_escuderia, id_pais FROM escuderia");
-            $registroEscuderia = [];
-            while ($row = $query->fetch_assoc()) {
-                $registroEscuderia[] = implode("; ", ["escuderia", $row["id"], $row["nombre_escuderia"], $row["id_pais"]]);
-            }
-
-            $query = $this->conn->query("SELECT id_temporada, id_piloto, id_escuderia FROM piloto_temporada");
-            $registroPilotoTemporada = [];
-            while ($row = $query->fetch_assoc()) {
-                $registroPilotoTemporada[] = implode("; ", ["piloto_temporada", $row["id_temporada"], $row["id_piloto"], $row["id_escuderia"]]);
-            }
-
-            $query = $this->conn->query("SELECT id, nombre_modelo, id_escuderia, id_temporada FROM vehiculo");
-            $registroVehiculo = [];
-            while ($row = $query->fetch_assoc()) {
-                $registroVehiculo[] = implode("; ", [
-                    "vehiculo", 
-                    $row["id"], 
-                    $row["nombre_modelo"], 
-                    $row["id_escuderia"], 
-                    $row["id_temporada"]
-                ]);
-            }
-            $this->closeConn();
-
-            $archivoCSV = fopen('./php/datos_exportados.csv', 'w');
-
-            $tablas = [
-                $registroPais,
-                $registroTemporada,
-                $registroPilotos,
-                $registroEscuderia,
-                $registroPilotoTemporada,
-                $registroVehiculo,
-            ];
-
-            foreach ($tablas as $tabla) {
-                foreach ($tabla as $linea) {
-                    fwrite($archivoCSV, $linea . PHP_EOL); 
+            if ($this->getConn()) {
+                if ($this->isDataBase()) {
+                    $this->conn->select_db($this->dbname);
+                    $query = $this->conn->query("SELECT id, nombre_pais FROM pais");
+                    $registroPais = [];
+                    while ($row = $query->fetch_assoc()) {
+                        $registroPais[] = implode("; ", ["pais", $row["id"], $row["nombre_pais"]]);
+                    }
+        
+                    $query = $this->conn->query("SELECT id, año FROM temporada");
+                    $registroTemporada = [];
+                    while ($row = $query->fetch_assoc()) {
+                        $registroTemporada[] = implode("; ", ["temporada", $row["id"], $row["año"]]);
+                    }
+        
+                    $query = $this->conn->query("SELECT id, nombre, apellido, nacimiento, id_pais FROM piloto");
+                    $registroPilotos = array();
+                    while ( $row = $query->fetch_assoc() ) {
+                        $registroPilotos[] = implode("; ", [
+                            "piloto",
+                            $row["id"],
+                            $row["nombre"],
+                            $row["apellido"],
+                            $row["nacimiento"],
+                            $row["id_pais"]
+                        ]);
+                    }
+        
+                    $query = $this->conn->query("SELECT id, nombre_escuderia, id_pais FROM escuderia");
+                    $registroEscuderia = [];
+                    while ($row = $query->fetch_assoc()) {
+                        $registroEscuderia[] = implode("; ", ["escuderia", $row["id"], $row["nombre_escuderia"], $row["id_pais"]]);
+                    }
+        
+                    $query = $this->conn->query("SELECT id_temporada, id_piloto, id_escuderia FROM piloto_temporada");
+                    $registroPilotoTemporada = [];
+                    while ($row = $query->fetch_assoc()) {
+                        $registroPilotoTemporada[] = implode("; ", ["piloto_temporada", $row["id_temporada"], $row["id_piloto"], $row["id_escuderia"]]);
+                    }
+        
+                    $query = $this->conn->query("SELECT id, nombre_modelo, id_escuderia, id_temporada FROM vehiculo");
+                    $registroVehiculo = [];
+                    while ($row = $query->fetch_assoc()) {
+                        $registroVehiculo[] = implode("; ", [
+                            "vehiculo", 
+                            $row["id"], 
+                            $row["nombre_modelo"], 
+                            $row["id_escuderia"], 
+                            $row["id_temporada"]
+                        ]);
+                    }
+                    $this->closeConn();
+        
+                    $archivoCSV = fopen('./php/datos_exportados.csv', 'w');
+        
+                    $tablas = [
+                        $registroPais,
+                        $registroTemporada,
+                        $registroPilotos,
+                        $registroEscuderia,
+                        $registroPilotoTemporada,
+                        $registroVehiculo,
+                    ];
+        
+                    foreach ($tablas as $tabla) {
+                        foreach ($tabla as $linea) {
+                            fwrite($archivoCSV, $linea . PHP_EOL); 
+                        }
+                    }
+        
+                    fclose($archivoCSV);
                 }
             }
-
-            fclose($archivoCSV);
         }
 
         /**
@@ -180,71 +196,76 @@
          * @param mixed $filepath path al fichero csv del que extraemos la información
          */
         private function insertarCSV($filepath){
-            $this->conn->autocommit(false);
-            $this->conn->begin_transaction();
-
-            $insert_into = "INSERT IGNORE INTO %s (%s) VALUES (%s)";
-            $try_open = fopen($filepath,"r");
-
-            if ($try_open !== false) {
-                try {
-                    while (($try_parse_csv = fgetcsv($try_open,0,";")) !== false) {
-                        $table = $try_parse_csv[0];
-                        foreach ($try_parse_csv as $key => $value) {
-                            $array[$key] = trim($value);
+            if ($this->conn != null) {
+                if ( $this->isDataBase()){
+                    $this->conn->select_db($this->dbname);
+                    $this->conn->autocommit(false);
+                    $this->conn->begin_transaction();
+        
+                    $insert_into = "INSERT IGNORE INTO %s (%s) VALUES (%s)";
+                    $try_open = fopen($filepath,"r");
+        
+                    if ($try_open !== false) {
+                        try {
+                            while (($try_parse_csv = fgetcsv($try_open,0,";")) !== false) {
+                                $table = $try_parse_csv[0];
+                                foreach ($try_parse_csv as $key => $value) {
+                                    $array[$key] = trim($value);
+                                }
+                                switch ($table) {
+                                    case "piloto":
+                                        $query = sprintf($insert_into, "piloto", "id, nombre, apellido, nacimiento, id_pais", "?,?,?,?,?");
+                                        $prepSt = $this->conn->prepare($query);
+                                        $prepSt->bind_param("sssss", $try_parse_csv[1], $try_parse_csv[2], $try_parse_csv[3], $try_parse_csv[4], $try_parse_csv[5]);
+                                        $prepSt->execute();
+                                        $prepSt->close();
+                                        break;
+                                    case "escuderia":
+                                        $query = sprintf($insert_into,  "escuderia","id, nombre_escuderia, id_pais", "?,?,?");
+                                        $prepSt = $this->conn->prepare($query);
+                                        $prepSt->bind_param("sss", $try_parse_csv[1], $try_parse_csv[2], $try_parse_csv[3]);
+                                        $prepSt->execute();
+                                        $prepSt->close();
+                                        break;
+                                    case "temporada":
+                                        $query = sprintf($insert_into,  "temporada","id, año", "?,?");
+                                        $prepSt = $this->conn->prepare($query);
+                                        $prepSt->bind_param("ss", $try_parse_csv[1], $try_parse_csv[2]);
+                                        $prepSt->execute();
+                                        $prepSt->close();
+                                        break;
+                                    case "piloto_temporada":
+                                        $query = sprintf($insert_into,  "piloto_temporada","id_temporada, id_piloto, id_escuderia", "?,?,?");
+                                        $prepSt = $this->conn->prepare($query);
+                                        $prepSt->bind_param("sss", $try_parse_csv[1], $try_parse_csv[2], $try_parse_csv[3]);
+                                        $prepSt->execute();
+                                        $prepSt->close();
+                                        break;
+                                    case "pais":
+                                        $query = sprintf($insert_into,  "pais", "id, nombre_pais", "?,?");
+                                        $prepSt = $this->conn->prepare($query);
+                                        $prepSt->bind_param("ss", $try_parse_csv[1], $try_parse_csv[2]);
+                                        $prepSt->execute();
+                                        $prepSt->close();
+                                        break;
+                                    case "vehiculo":
+                                        $query = sprintf($insert_into,  "vehiculo", "id, nombre_modelo, id_escuderia, id_temporada", "?,?,?,?");
+                                        $prepSt = $this->conn->prepare($query);
+                                        $prepSt->bind_param("ssss", $try_parse_csv[1], $try_parse_csv[2], $try_parse_csv[3], $try_parse_csv[4]);
+                                        $prepSt->execute();
+                                        $prepSt->close();
+                                        break;
+                                }
+                            }
+                            $this->conn->commit();
+                        } catch (Exception $e) {
+                            $this->conn->rollback();
+                            exit("Error during performing a csv data insertion in the DB. Error msg=".$e->getMessage());
                         }
-                        switch ($table) {
-                            case "piloto":
-                                $query = sprintf($insert_into, "piloto", "id, nombre, apellido, nacimiento, id_pais", "?,?,?,?,?");
-                                $prepSt = $this->conn->prepare($query);
-                                $prepSt->bind_param("sssss", $try_parse_csv[1], $try_parse_csv[2], $try_parse_csv[3], $try_parse_csv[4], $try_parse_csv[5]);
-                                $prepSt->execute();
-                                $prepSt->close();
-                                break;
-                            case "escuderia":
-                                $query = sprintf($insert_into,  "escuderia","id, nombre_escuderia, id_pais", "?,?,?");
-                                $prepSt = $this->conn->prepare($query);
-                                $prepSt->bind_param("sss", $try_parse_csv[1], $try_parse_csv[2], $try_parse_csv[3]);
-                                $prepSt->execute();
-                                $prepSt->close();
-                                break;
-                            case "temporada":
-                                $query = sprintf($insert_into,  "temporada","id, año", "?,?");
-                                $prepSt = $this->conn->prepare($query);
-                                $prepSt->bind_param("ss", $try_parse_csv[1], $try_parse_csv[2]);
-                                $prepSt->execute();
-                                $prepSt->close();
-                                break;
-                            case "piloto_temporada":
-                                $query = sprintf($insert_into,  "piloto_temporada","id_temporada, id_piloto, id_escuderia", "?,?,?");
-                                $prepSt = $this->conn->prepare($query);
-                                $prepSt->bind_param("sss", $try_parse_csv[1], $try_parse_csv[2], $try_parse_csv[3]);
-                                $prepSt->execute();
-                                $prepSt->close();
-                                break;
-                            case "pais":
-                                $query = sprintf($insert_into,  "pais", "id, nombre_pais", "?,?");
-                                $prepSt = $this->conn->prepare($query);
-                                $prepSt->bind_param("ss", $try_parse_csv[1], $try_parse_csv[2]);
-                                $prepSt->execute();
-                                $prepSt->close();
-                                break;
-                            case "vehiculo":
-                                $query = sprintf($insert_into,  "vehiculo", "id, nombre_modelo, id_escuderia, id_temporada", "?,?,?,?");
-                                $prepSt = $this->conn->prepare($query);
-                                $prepSt->bind_param("ssss", $try_parse_csv[1], $try_parse_csv[2], $try_parse_csv[3], $try_parse_csv[4]);
-                                $prepSt->execute();
-                                $prepSt->close();
-                                break;
-                        }
+                        
+                        fclose($try_open);
                     }
-                    $this->conn->commit();
-                } catch (Exception $e) {
-                    $this->conn->rollback();
-                    exit("Error during performing a csv data insertion in the DB. Error msg=".$e->getMessage());
                 }
-                
-                fclose($try_open);
             }
         }
 
@@ -268,40 +289,42 @@
                 $escuderia= $_GET["escuderia"] === $defaultField ? "%" : "%".$_GET["escuderia"]."%"; 
                 $pais = $_GET["pais"] === $defaultField ? "%" : "%".$_GET["pais"]."%";
 
-
-                $this->getConn();
-
-                $query = "SELECT p.nombre, p.apellido, p.id 
-                            FROM piloto as p 
-                            WHERE p.nombre LIKE ? 
-                            AND p.apellido LIKE ? 
-                            AND TIMESTAMPDIFF(YEAR, p.nacimiento, CURDATE()) <= ? 
-                            AND id_pais IN ( 
-                                SELECT distinct pa.id 
-                                FROM pais as pa 
-                                WHERE pa.nombre_pais LIKE ?
-                            ) 
-                            AND p.id IN (
-                                SELECT id_piloto 
-                                FROM piloto_temporada as pt 
-                                JOIN escuderia as e ON pt.id_escuderia = e.id 
-                                WHERE e.nombre_escuderia LIKE ?
-                            ) 
-                            ORDER BY p.nombre ASC
-                            LIMIT 10";
-                
-                $prepSt = $this->conn->prepare($query);
-                $prepSt->bind_param("sssss", $nombre, $apellido, $edad, $pais, $escuderia);
-                $prepSt->execute();
-                $resultSet = $prepSt->get_result();
-                
-                while ( $row = $resultSet->fetch_assoc() ) {
-                    echo "<li><input type='submit' name='Piloto' value='".$row["nombre"]." ".$row["apellido"]."'></li>";
+                if ($this->getConn()){
+                    if ($this->isDataBase()) {
+                        $this->conn->select_db($this->dbname);
+                        $query = "SELECT p.nombre, p.apellido, p.id 
+                                    FROM piloto as p 
+                                    WHERE p.nombre LIKE ? 
+                                    AND p.apellido LIKE ? 
+                                    AND TIMESTAMPDIFF(YEAR, p.nacimiento, CURDATE()) <= ? 
+                                    AND id_pais IN ( 
+                                        SELECT distinct pa.id 
+                                        FROM pais as pa 
+                                        WHERE pa.nombre_pais LIKE ?
+                                    ) 
+                                    AND p.id IN (
+                                        SELECT id_piloto 
+                                        FROM piloto_temporada as pt 
+                                        JOIN escuderia as e ON pt.id_escuderia = e.id 
+                                        WHERE e.nombre_escuderia LIKE ?
+                                    ) 
+                                    ORDER BY p.nombre ASC
+                                    LIMIT 15";
+                        
+                        $prepSt = $this->conn->prepare($query);
+                        $prepSt->bind_param("sssss", $nombre, $apellido, $edad, $pais, $escuderia);
+                        $prepSt->execute();
+                        $resultSet = $prepSt->get_result();
+                        
+                        while ( $row = $resultSet->fetch_assoc() ) {
+                            echo "<li><input type='submit' name='Piloto' value='".$row["nombre"]." ".$row["apellido"]."'></li>";
+                        }
+        
+                        $resultSet->close();
+                        $prepSt->close();
+                        $this->closeConn();
+                    }
                 }
-
-                $resultSet->close();
-                $prepSt->close();
-                $this->closeConn();
             }
         }
 
@@ -313,13 +336,17 @@
         public function getDatosPiloto(){
             if (isset($_GET["Piloto"])) {
                 $piloto = preg_split('/\s+/', trim($_GET["Piloto"]));
-                $this->getConn();
-                echo "<section><h4>Piloto:</h4>";
-                $this->pintarPiloto( $piloto);
-                $this->pintarSusTemporadas($piloto);
-                echo "</section>";
-                
-                $this->closeConn();
+                if ($this->getConn()) {
+                    if ($this->isDataBase()) {
+                        $this->conn->select_db($this->dbname);
+                        echo "<section><h4>Piloto:</h4>";
+                        $this->pintarPiloto( $piloto);
+                        $this->pintarSusTemporadas($piloto);
+                        echo "</section>";
+                        
+                        $this->closeConn();
+                    }
+                }
             }
         }
 

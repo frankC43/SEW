@@ -71,6 +71,12 @@ footer {
 }
 
 /*especificidad 002*/
+footer h3 {
+    background-color: #1C4345;
+    color: #fff;
+}
+
+/*especificidad 002*/
 footer a {
     color:#fff
     /*color de fondo heredado del footer*/
@@ -111,7 +117,7 @@ table tr {
 
 /*especificidad 012*/
 nav a[class="activo"] {
-    color: #92DDDD;
+    color: #B6E7E7;
     font-size: 130%;    /*color de primer plano heredado del header*/
 }
 
