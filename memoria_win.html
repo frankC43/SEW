@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="author" content="UO294768-Francisco Cimadevilla">
+    <meta name="description" content="Juego de memoria de la web F1 Desktop relacionado con los juegos de F1">
+    <meta name="keywords" content="Formula 1 Juegos, F1 Juegos, Memoria, Cartas">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>F1 Desktop - Juego de Memoria</title>
+    <link href="multimedia/imagenes/favicon-lance-stroll.jfif" rel="icon">
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css">
+    <link rel="stylesheet" type="text/css" href="estilo/memoria.css">
+    <script src="js/memoria.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1><a href="index.html" title="Inicio">F1 Desktop</a></h1>
+        <nav>
+            <a href="index.html" title="Página principal">Inicio</a>
+            <a href="piloto.html" title="Información de pilotos">Piloto</a>
+            <a href="noticias.html" title="Últimas noticias">Noticias</a>
+            <a href="calendario.html" title="Ver el calendario">Calendario</a>
+            <a href="meteorologia.html" title="Condiciones del clima">Meteorología</a>
+            <a href="juegos.html" title="Acceder a juegos" class="activo">Juegos</a>
+            <a href="circuito.html" title="Detalles del circuito">Circuito</a>
+            <a href="viajes.php" title="Sección de viajes">Viajes</a>
+        </nav>
+    </header>
+
+    <p><a href="index.html" title="Inicio">Inicio</a> &gt;&gt; <a href="juegos.html" title="Juegos">Juegos</a> &gt;&gt; Juego de Memoria</p>
+
+    <aside>
+    <h2>Menú de Juegos</h2>
+        <ul>
+            <li><a href="semaforo.php" title="Juego del Semaforo">Juego del Semáforo</a></li>
+            <li><a href="api.html" title="Aplicación con APIs">Aplicación con APIs</a></li>
+            <li><a href="datos.php" title="Aplicación Base de Datos">Aplicación Base de Datos</a></li>
+        </ul>
+    </aside>
+    <main>
+        <h2>Juego de Memoria</h2>
+        <aside>
+            <button onclick="mem.getTutorial()">Ver más instrucciones</button>
+        </aside>
+        <h3>FIN DEL JUEGO</h3><section>
+            <h3>Consigue que todas las Tarjetas de Memorización queden dadas la vuelta.</h3>
+        <article data-element="AstonMartin" data-state="revealed"><h3>Tarjeta de Memoria</h3><img src="https://upload.wikimedia.org/wikipedia/fr/7/72/Aston_Martin_Aramco_Cognizant_F1.svg" alt="AstonMartin" class="hidden"></article><article data-element="McLaren" data-state="revealed"><h3>Tarjeta de Memoria</h3><img src="https://upload.wikimedia.org/wikipedia/en/6/66/McLaren_Racing_logo.svg" alt="McLaren" class="hidden"></article><article data-element="Mercedes" data-state="revealed"><h3>Tarjeta de Memoria</h3><img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Mercedes_AMG_Petronas_F1_Logo.svg" alt="Mercedes" class="hidden"></article><article data-element="RedBull" data-state="revealed"><h3>Tarjeta de Memoria</h3><img src="https://upload.wikimedia.org/wikipedia/de/c/c4/Red_Bull_Racing_logo.svg" alt="RedBull" class="hidden"></article><article data-element="Ferrari" data-state="revealed"><h3>Tarjeta de Memoria</h3><img src="https://upload.wikimedia.org/wikipedia/de/c/c0/Scuderia_Ferrari_Logo.svg" alt="Ferrari" class="hidden"></article><article data-element="Alpine" data-state="revealed"><h3>Tarjeta de Memoria</h3><img src="https://upload.wikimedia.org/wikipedia/fr/b/b7/Alpine_F1_Team_2021_Logo.svg" alt="Alpine" class="hidden"></article><article data-element="AstonMartin" data-state="revealed"><h3>Tarjeta de Memoria</h3><img src="https://upload.wikimedia.org/wikipedia/fr/7/72/Aston_Martin_Aramco_Cognizant_F1.svg" alt="AstonMartin" class="hidden"></article><article data-element="Alpine" data-state="revealed"><h3>Tarjeta de Memoria</h3><img src="https://upload.wikimedia.org/wikipedia/fr/b/b7/Alpine_F1_Team_2021_Logo.svg" alt="Alpine" class="hidden"></article><article data-element="Mercedes" data-state="revealed"><h3>Tarjeta de Memoria</h3><img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Mercedes_AMG_Petronas_F1_Logo.svg" alt="Mercedes" class="hidden"></article><article data-element="RedBull" data-state="revealed"><h3>Tarjeta de Memoria</h3><img src="https://upload.wikimedia.org/wikipedia/de/c/c4/Red_Bull_Racing_logo.svg" alt="RedBull" class="hidden"></article><article data-element="Ferrari" data-state="revealed"><h3>Tarjeta de Memoria</h3><img src="https://upload.wikimedia.org/wikipedia/de/c/c0/Scuderia_Ferrari_Logo.svg" alt="Ferrari" class="hidden"></article><article data-element="McLaren" data-state="revealed"><h3>Tarjeta de Memoria</h3><img src="https://upload.wikimedia.org/wikipedia/en/6/66/McLaren_Racing_logo.svg" alt="McLaren" class="hidden"></article></section>
+        <script> 
+            const mem = new Memoria()
+        </script>
+    </main>
+    <footer>
+
+    </footer>
+
+</body></html>

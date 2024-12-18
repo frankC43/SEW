@@ -65,7 +65,7 @@ class Kml(object):
         for hijo in self.raiz.findall('.//'): # Expresión XPath
             print("\nElemento = " , hijo.tag)
             if hijo.text != None:
-                print("Contenido = ", hijo.text.strip('\n')) #strip() elimina los '\n' del string
+                print("Contenido = ", hijo.text.strip('\n')) 
             else:
                 print("Contenido = ", hijo.text)    
             print("Atributos = ", hijo.attrib)

@@ -1,3 +1,5 @@
+/*datos personales: Francisco Cimadevilla UO294768*/
+
 /*especificidad 001*/
 body {
     display: flex;
@@ -181,21 +183,7 @@ body aside:nth-child(3){
     display: grid;
     padding: 0;
 }
-/*especificidad 002*/
-aside nav {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    align-self: center;
 
-}
-/*especificidad 003*/
-aside nav a {
-    color: #fff;
-    font-size: 2em;
-}
 /*especificidad 012*/
 aside:nth-child(3) h2 {
     grid-column: 1/-1;
@@ -227,9 +215,17 @@ body > main > section:nth-child(2) > img:nth-child(3) {
     align-self: center;
 }
 
+main section:nth-child(2) {
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
 
 /*especificidad 011*/
-aside:nth-child(4) {
+section:nth-child(4) {
+    display: block;
     box-sizing: border-box;
     height: 60vh;
     margin: 0 auto;
@@ -240,7 +236,7 @@ aside:nth-child(4) {
 }
 
 /*especificidad 013*/
-main aside:nth-child(4) figure {
+main section:nth-child(4) figure {
     width: 100%;
     max-width: 100vh;
     padding: 0;
@@ -249,7 +245,7 @@ main aside:nth-child(4) figure {
 }
 
 /*especificidad 014*/
-main aside:nth-child(4) figure img {
+main section:nth-child(4) figure img {
     transition: all 0.5s;
     width: 100%;
     max-width: 100vh;
@@ -266,7 +262,7 @@ section article section:first-of-type > img {
 }
 
 /*especificidad 014*/
-main aside:nth-child(4) button { 
+main section:nth-child(4) button { 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -280,15 +276,15 @@ main aside:nth-child(4) button {
 }
 
 /*especificidad 023*/
-main aside:nth-child(4) button:first-of-type {
+main section:nth-child(4) button:first-of-type {
     right: 1em;
 }
 /*especificidad 023*/
-main aside:nth-child(4) button:nth-of-type(2){
+main section:nth-child(4) button:nth-of-type(2){
     left: 1em
 }
 /*especificidad 023*/
-main aside:nth-child(4) button:active{
+main section:nth-child(4) button:active{
     transform: scale(1.1);
 }
 
@@ -327,7 +323,7 @@ main aside:nth-child(4) button:active{
     /*especificidad 002*/
     header nav {
         display: flex;  /*redefinición del display del nav para la versión de pantallas con muy poco ancho*/
-        flex-direction: column;
+        flex-direction: column; /*redefinición de flex-direction*/
         padding: 0; /*redefinición del padding*/
     }
 }

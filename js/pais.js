@@ -95,7 +95,7 @@ class Pais {
                             article.append("<p>Humedad: "+humidity+"%</p>");
 
                             $(document).ready(function () {
-                                $("body main section").append(article)
+                                $("body main section:nth-of-type(2)").append(article)
                             })
 
                         }
@@ -115,12 +115,12 @@ bahrein.setReligionMayoritaria("Islam")
 let info = bahrein.getMoreInfo()
 
 $(document).ready(function () {
-    $("body main aside").append("<p>Nombre: "+bahrein.getNombrePais()+"</p>")
-    $("body main aside").append("<p>Capital: "+bahrein.getNombreCapital()+"</p>")
-    $("body main aside").append("<p>Cantidad Poblacion: "+info[1]+"</p>")
-    $("body main aside").append("<p>Religión Mayoritaria: "+info[3]+"</p>")
-    $("body main aside").append("<p>Forma de gobierno: "+info[2]+"</p>")
-    $("body main aside").append("<p>Nombre Circuito: "+info[0]+"</p>")
+    $("body main section:first-of-type").append("<p>Nombre: "+bahrein.getNombrePais()+"</p>")
+    $("body main section:first-of-type").append("<p>Capital: "+bahrein.getNombreCapital()+"</p>")
+    $("body main section:first-of-type").append("<p>Cantidad Poblacion: "+info[1]+"</p>")
+    $("body main section:first-of-type").append("<p>Religión Mayoritaria: "+info[3]+"</p>")
+    $("body main section:first-of-type").append("<p>Forma de gobierno: "+info[2]+"</p>")
+    $("body main section:first-of-type").append("<p>Nombre Circuito: "+info[0]+"</p>")
 })
 
 bahrein.searchWeatherInfo()

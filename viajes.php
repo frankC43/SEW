@@ -103,7 +103,7 @@
             <a href="meteorologia.html" title="Condiciones del clima">Meteorología</a>
             <a href="juegos.html" title="Acceder a juegos">Juegos</a>
             <a href="circuito.html" title="Detalles del circuito">Circuito</a>
-            <a href="viajes.php" title="Sección de viajes" class="activo">Viajes</a>
+            <a href="viajes.php" title="Sección de viajes" class="active">Viajes</a>
         </nav>
     </header>
 
@@ -121,14 +121,14 @@
             <button onclick="viajes.esperarPorGoogle(() =>  viajes.initDynamicMap() )">Ver Mapa Dinámico</button>
         </section>
 
-        <aside>
+        <section>
             <h3>Carrusel de imágenes</h3>
             <figure>
                 <?php $carrusel->getImages();?>
             </figure>
             <button aria-label="Mover la imagen del carrusel a la derecha"> &gt; </button>
             <button aria-label="Mover la imagen del carrusel a la izquierda"> &lt; </button>
-        </aside>
+        </section>
         <script 
             src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
         </script>

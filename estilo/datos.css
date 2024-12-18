@@ -1,11 +1,16 @@
+/*datos personales: Francisco Cimadevilla UO294768*/
+
 /*especificidad 001*/
 main {
     display: flex;
     flex-direction: column;
 }
 /*especificidad 002*/
-main h2 {
-    align-self: center;
+main hgroup {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
 }
 /*especificidad 012*/
 main section:first-of-type {
@@ -37,6 +42,7 @@ body > main > section:nth-child(4) > form:nth-child(2) > input {
 }
 /*especificidad 012*/
 main section:nth-of-type(2) {
+    display: block;
     border: 0.5vw solid #1D5D5D;
     margin: 3% 0;
 }

@@ -34,10 +34,7 @@ main label {
 section canvas {
     width: 50%;
     height: auto;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 2%;
-    margin-bottom: 2%;
+    margin: 2% 5%;
     justify-self: center;
     border: 2px solid #36ABAB;
     background-color: #36ABAB;
@@ -72,3 +69,14 @@ main label {
     margin: 2%;
 }
 
+@media screen and (max-width: 768px){
+    /*especificidad 002*/
+    section canvas {
+        width: 95%;   /* redefinición del ancho del canvas */
+        margin: 0;    /* redefinición del margen */
+    }
+    /*especificidad 003*/
+    main section img {
+        width: 85%; /* redefinición del ancho de la imagen */
+    }
+}

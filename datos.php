@@ -437,7 +437,7 @@
             <a href="noticias.html" title="Últimas noticias">Noticias</a>
             <a href="calendario.html" title="Ver el calendario">Calendario</a>
             <a href="meteorologia.html" title="Condiciones del clima">Meteorología</a>
-            <a href="juegos.html" title="Acceder a juegos">Juegos</a>
+            <a href="juegos.html" title="Acceder a juegos" class="active">Juegos</a>
             <a href="circuito.html" title="Detalles del circuito">Circuito</a>
             <a href="viajes.php" title="Sección de viajes">Viajes</a>
         </nav>
@@ -454,8 +454,10 @@
         </ul>
     </aside>
     <main>
-        <h2>Base de Datos Privada F1</h2>
-        <p>Consulta toda la información que hayas guardado sobre los pilotos de la Fórmula 1.</p>
+        <hgroup>
+            <h2>Base de Datos Privada F1</h2>
+            <p>Consulta toda la información que hayas guardado sobre los pilotos de la Fórmula 1.</p>
+        </hgroup>
         <section>
             <h3>Operaciones en la base de datos...</h3>
             <form action="#" method="POST">

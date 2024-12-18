@@ -1,21 +1,18 @@
 <!DOCTYPE HTML>
-
-<html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="author" content="UO294768-Francisco Cimadevilla"/>
-    <meta name="description" content="Documento de la web F1 Desktop con información referente a la hoja de ruta del gran premio de Fórmula 1"/>
-    <meta name="keywords" content="Formula 1 Viajes, Viajes F1"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="author" content="UO294768-Francisco Cimadevilla">
+    <meta name="description" content="Documento de la web F1 Desktop con información referente a la hoja de ruta del gran premio de Fórmula 1">
+    <meta name="keywords" content="Formula 1 Viajes, Viajes F1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>F1 Desktop - Viajes</title>
     <link href="multimedia/imagenes/favicon-lance-stroll.jfif" rel="icon">
-    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
-    <link rel="stylesheet" type="text/css" href="estilo/layout.css"/>
-    <script async defer src=
-    "https://maps.googleapis.com/maps/api/js?key=AIzaSyCG2TuPk4XC9L5T6hnCm2afquBx4De-too&loading=async">
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css">
+    <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCG2TuPk4XC9L5T6hnCm2afquBx4De-too&amp;loading=async">
     </script>
-    <script src="js/viajes.js"></script>
-</head>
+    <script src="js/viajes.js"></script><script src="https://maps.googleapis.com/maps-api-v3/api/js/59/3a/intl/es_ALL/main.js"></script>
+<script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/59/3a/intl/es_ALL/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/59/3a/intl/es_ALL/util.js"></script></head>
 
 <body>
     <header>
@@ -28,22 +25,39 @@
             <a href="meteorologia.html" title="Condiciones del clima">Meteorología</a>
             <a href="juegos.html" title="Acceder a juegos">Juegos</a>
             <a href="circuito.html" title="Detalles del circuito">Circuito</a>
-            <a href="viajes.php" title="Sección de viajes" class="activo">Viajes</a>
+            <a href="viajes.php" title="Sección de viajes" class="active">Viajes</a>
         </nav>
     </header>
 
-    <p><a href="index.html" title="Inicio">Inicio</a> >> Viajes</p>
+    <p><a href="index.html" title="Inicio">Inicio</a> &gt;&gt; Viajes</p>
 
     <main>
         <h2>Viajes</h2>
         <section>
             <h3>Mapa Estático</h3>
+            <button onclick="viajes.getStaticMap()">Ver Mapa Estático</button>
         </section>
 
         <section>
             <h3>Mapa Dinámico</h3>
+            <button onclick="viajes.esperarPorGoogle(() =>  viajes.initDynamicMap() )">Ver Mapa Dinámico</button>
         </section>
+
+        <aside>
+            <h3>Carrusel de imágenes</h3>
+            <figure>
+                <img src="https://farm66.staticflickr.com/65535/54204421292_e15d8eec21_w.png" alt="Imagen del carrusel 0"><img src="https://farm66.staticflickr.com/65535/54201062522_d0b34a0ac8_w.png" alt="Imagen del carrusel 1"><img src="https://farm66.staticflickr.com/65535/54201062477_4aa80fe6bc_w.png" alt="Imagen del carrusel 2"><img src="https://farm66.staticflickr.com/65535/54202389330_10894b022c_w.png" alt="Imagen del carrusel 3"><img src="https://farm66.staticflickr.com/65535/54201062442_becf770f59_w.png" alt="Imagen del carrusel 4"><img src="https://farm66.staticflickr.com/65535/54202216614_15f8ac9c97_w.png" alt="Imagen del carrusel 5"><img src="https://farm66.staticflickr.com/65535/54202216594_0cf6e8849c_w.png" alt="Imagen del carrusel 6"><img src="https://farm66.staticflickr.com/65535/54202206478_05f32e3908_w.png" alt="Imagen del carrusel 7"><img src="https://farm66.staticflickr.com/65535/54201062392_f7c352e2e4_w.png" alt="Imagen del carrusel 8"><img src="https://farm66.staticflickr.com/65535/54202206393_edd49da1cd_w.png" alt="Imagen del carrusel 9">            </figure>
+            <button aria-label="Mover la imagen del carrusel a la derecha"> &gt; </button>
+            <button aria-label="Mover la imagen del carrusel a la izquierda"> &lt; </button>
+        </aside>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+        </script>
+        <script>viajes.createCarrusel()</script>
+        <section>
+            <h3>Cambio de moneda</h3>
+            <p>1 EUR equivale a</p>
+            <p>0.394924 BHD (Dinar bareiní)</p>        </section>
     </main>
     <footer></footer>
-</body>
-</html>
+
+</body></html>

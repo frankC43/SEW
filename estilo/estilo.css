@@ -23,7 +23,7 @@ header a{
     color:#fff
     /*color de fondo heredado del header*/
 }
-
+/*especificidad 001*/
 a {
     text-decoration: none;
 }
@@ -116,7 +116,7 @@ table tr {
 }
 
 /*especificidad 012*/
-nav a[class="activo"] {
+nav .active {
     color: #B6E7E7;
     font-size: 130%;    /*color de primer plano heredado del header*/
 }
@@ -162,7 +162,7 @@ button {
 }
 
 /*especificidad 014*/
-main aside:nth-child(4) button {
+main section:nth-child(4) button {
     border: none;
     border-radius: 50%;
     font-size: 2em;

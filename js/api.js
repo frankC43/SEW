@@ -7,8 +7,7 @@ class Puzzle {
         this.puzzleBoard = {width: 0, height: 0, pieceOriginalImageWidth: 0, pieceOriginalImageHeight: 0, pieceWidth: 0, pieceHight: 0}
         this.canvas
         this.context
-        /*To check if a bitImage of the camvas is dragged by the user*/
-        this.isDragging = false
+
         this.pieceImgs = []
         this.pieceIds = []
         this.pieceIdsRandomized = []
@@ -112,63 +111,77 @@ class Puzzle {
         this.canvas.willReadFrequently = true;
         this.context = this.canvas.getContext("2d")
 
-        //click method fired when the user clicks a piece in the puzzle
-        let mouseClickEvent = (e) => {
-            e.preventDefault()
-            let mouseCoords = this.getMouseCoords(e.clientX, e.clientY)
-            //recover the piece position (clicked)
-            let pieceRow = mouseCoords.x
-            let pieceCol = mouseCoords.y
+        //la logica del juego para mouse
+        this.canvas.addEventListener('click', this.mouseClickEvent.bind(this))
+        this.canvas.addEventListener('touchstart', this.touchClickEvent.bind(this))
 
-            //revover the blanck piece position
-            let blankPiece = this.getImageIndexed(this.pieceIds[this.findBlankIndex()])
-            let blankRow = blankPiece.x
-            let blankCol = blankPiece.y
-            if (!this.isBlankNeighbour(pieceRow,pieceCol,blankRow,blankCol))
-                return
-
-            //Web Audio api
-            this.moveTrack.audio.play()
-
-            //store image that will be swapped
-            const swappedImage = 
-                this.context.getImageData(
-                                pieceCol*this.puzzleBoard.pieceWidth, 
-                                pieceRow*this.puzzleBoard.pieceHight,
-                                this.puzzleBoard.pieceWidth,
-                                this.puzzleBoard.pieceHight
-                            ) //this method returns the pixels section of the bitImage inside the canvas that is accesed
-            this.context.fillRect(
-                    pieceCol*this.puzzleBoard.pieceWidth, 
-                    pieceRow*this.puzzleBoard.pieceHight,
-                    this.puzzleBoard.pieceWidth,
-                    this.puzzleBoard.pieceHight
-                )
-            this.context.putImageData(
-                    swappedImage, 
-                    blankCol*this.puzzleBoard.pieceWidth, 
-                    blankRow*this.puzzleBoard.pieceHight
-                )
-            const imgSelected = this.getImageFromCoords(pieceRow,pieceCol)
-            const imgBlank = this.getImageFromCoords(blankRow,blankCol)
-
-            this.swapIndex(imgSelected, imgBlank)
-
-            if (this.isFinished()){
-                this.canvas.removeEventListener('click', mouseClickEvent)
-                this.drawBlankPiece()
-                this.stopTimer()
-                this.addResult(this.finalTime)
-            }
-        }
-
-        //game loop is fired with this event
-        this.canvas.addEventListener('click', mouseClickEvent)
 
         var img = new Image()
         img.onload = this.spliceImages.bind(img, this)
         img.src = "./multimedia/imagenes/f1puzzle.jpg"
 
+    }
+
+    mouseClickEvent(e) {
+        e.preventDefault()
+        let mouseCoords = this.getMouseCoords(e.clientX, e.clientY)
+        this.canvasEvent(mouseCoords)
+    }
+
+    touchClickEvent(e) {
+        e.preventDefault()
+        let touch = e.touches[0]
+        let mouseCoords = this.getMouseCoords(touch.clientX, touch.clientY)
+        this.canvasEvent(mouseCoords)
+    }
+
+    canvasEvent(mouseCoords) {
+       /* e.preventDefault()
+        let mouseCoords = this.getMouseCoords(e.clientX, e.clientY)*/
+        //recover the piece position (clicked)
+        let pieceRow = mouseCoords.x
+        let pieceCol = mouseCoords.y
+
+        //revover the blanck piece position
+        let blankPiece = this.getImageIndexed(this.pieceIds[this.findBlankIndex()])
+        let blankRow = blankPiece.x
+        let blankCol = blankPiece.y
+        if (!this.isBlankNeighbour(pieceRow,pieceCol,blankRow,blankCol))
+            return
+
+        //Web Audio api
+        this.moveTrack.audio.play()
+
+        //store image that will be swapped
+        const swappedImage = 
+            this.context.getImageData(
+                            pieceCol*this.puzzleBoard.pieceWidth, 
+                            pieceRow*this.puzzleBoard.pieceHight,
+                            this.puzzleBoard.pieceWidth,
+                            this.puzzleBoard.pieceHight
+                        ) //this method returns the pixels section of the bitImage inside the canvas that is accesed
+        this.context.fillRect(
+                pieceCol*this.puzzleBoard.pieceWidth, 
+                pieceRow*this.puzzleBoard.pieceHight,
+                this.puzzleBoard.pieceWidth,
+                this.puzzleBoard.pieceHight
+            )
+        this.context.putImageData(
+                swappedImage, 
+                blankCol*this.puzzleBoard.pieceWidth, 
+                blankRow*this.puzzleBoard.pieceHight
+            )
+        const imgSelected = this.getImageFromCoords(pieceRow,pieceCol)
+        const imgBlank = this.getImageFromCoords(blankRow,blankCol)
+
+        this.swapIndex(imgSelected, imgBlank)
+
+        if (this.isFinished()){
+            this.canvas.removeEventListener('click', mouseClickEvent)
+            this.drawBlankPiece()
+            this.stopTimer()
+            this.addResult(this.finalTime)
+        }
     }
 
     getMousePos(e){
@@ -260,14 +273,16 @@ class Puzzle {
     }
 
     getMouseCoords(x,y){
-        const rowOffset = this.canvas.getBoundingClientRect().x
-        const colOffset = this.canvas.getBoundingClientRect().y
-        const pieceW = rowOffset+this.puzzleBoard.width
-        const pieceH = colOffset+this.puzzleBoard.height
-        let col = x <= pieceW ? 0 :  x <= pieceW+this.puzzleBoard.width ? 1 : 2
-        let row = y <= pieceH ? 0 :  y <= pieceH+this.puzzleBoard.height ? 1 : 2
-    
-        return { x:row, y:col}
+        const rect = this.canvas.getBoundingClientRect(); 
+        const scaleX = this.canvas.width / rect.width;   
+        const scaleY = this.canvas.height / rect.height; 
+        const mouseX = (x - rect.left) * scaleX;
+        const mouseY = (y - rect.top) * scaleY;
+
+        const col = Math.floor(mouseX / this.puzzleBoard.pieceWidth);
+        const row = Math.floor(mouseY / this.puzzleBoard.pieceHight);
+
+        return { x: row, y: col };
     }
 
     findBlankIndex(){
@@ -276,13 +291,13 @@ class Puzzle {
     }
 
     isBlankNeighbour(pieceRow, pieceCol, blankRow, blankCol){
-        if(pieceRow!=blankRow && pieceCol!=blankCol) return false//if the piece is not in the row nor the column then it's not an adjacent
+        if(pieceRow!=blankRow && pieceCol!=blankCol) return false
         if(Math.abs(pieceRow-blankRow)==1 || Math.abs(pieceCol-blankCol)==1) return true
         return false
     }
 
     getImageFromCoords(x,y){
-        return x+y*this.columns//x*this.rows+y
+        return x+y*this.columns
     }
 
     swapIndex(img, blank){
@@ -325,7 +340,6 @@ class Puzzle {
         this.stopTimer()
 
         let input = document.querySelector("main label input")
-       // input.readOnly = false
 
         let btn = document.querySelector("main button")
         btn.textContent = "Comenzar Juego"

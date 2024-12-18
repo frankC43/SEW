@@ -1,3 +1,5 @@
+/*datos personales: Francisco Cimadevilla UO294768*/
+
 /*especificidad 003*/
 body main section {
     display: flex;
@@ -105,10 +107,6 @@ main > h3 {
     font-size: 2em;
 }
 
-/*Los siguientes selectores modifican la cara oculta de las cartas en favor de la usabilidad.
-  Dando al usuario más facilidades para encontrar las parejas de cartas, 
-  mediante el uso del color de fondo y las letras de las imagenes con los logos.
-*/
 /*especificidad 023*/
 section article[data-element='Alpine'][data-state] img{
     border: 0.45vw solid #8F008A; 

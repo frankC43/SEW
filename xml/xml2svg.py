@@ -21,7 +21,7 @@ class Svg:
             'preserveAspectRatio':str(self.preserveAspectRatio)
         })
 
-    def addPolyline(self, points: list, stroke_color: str = 'red', stroke_width: str = '3', fill_color: str = 'none'):
+    def addPolyline(self, points: list):
         
         ET.SubElement(self.raiz, 'polyline', {
             'points': points,

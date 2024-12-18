@@ -119,10 +119,10 @@ class Viajes {
     }
 
     createCarrusel(){
-        let carruselImgs = document.querySelector("aside:nth-child(4) figure").querySelectorAll("img")
+        let carruselImgs = document.querySelector("section:nth-child(4) figure").querySelectorAll("img")
         this.maxCarruselSlide = carruselImgs.length -1
 
-        let btnRight = document.querySelector("main aside:nth-child(4) button:first-of-type")
+        let btnRight = document.querySelector("main section:nth-child(4) button:first-of-type")
         btnRight.addEventListener('click', () => {
             if (this.carruselSlide === this.maxCarruselSlide){
                 this.carruselSlide = 0
@@ -134,7 +134,7 @@ class Viajes {
                 $(img).css("transform", "translateX("+(transf)+"%)")
             })
         })
-        let btnLeft = document.querySelector("main aside:nth-child(4) button:nth-of-type(2)")
+        let btnLeft = document.querySelector("main section:nth-child(4) button:nth-of-type(2)")
         btnLeft.addEventListener('click', () => {
             if (this.carruselSlide === 0){
                 this.carruselSlide = this.maxCarruselSlide
